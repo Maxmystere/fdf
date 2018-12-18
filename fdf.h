@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   g_mlxptr.c                                         :+:      :+:    :+:   */
+/*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/18 20:42:29 by magrab            #+#    #+#             */
-/*   Updated: 2018/12/18 22:07:23 by magrab           ###   ########.fr       */
+/*   Created: 2018/12/18 22:03:51 by magrab            #+#    #+#             */
+/*   Updated: 2018/12/18 22:13:25 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#ifndef			FDF_H
+# define		FDF_H
 
-void	*g_mlx(int setup)
-{
-	static void *mlx_ptr;
+# include		<mlx.h>
+# include		<stdlib.h>
+# include		<stdio.h>
+# include		<math.h>
 
-	if (setup == 1)
-		mlx_ptr = mlx_init();
-	return (mlx_ptr);
-}
+void			*g_mlx(int setup);
+void			*g_win(int win, int sizex, int sizey, char *win_name);
 
-void	*g_win(int setup, int sizex, int sizey, char *win_name)
-{
-	static void *win_ptr;
+int				key_hook(int key, void *param);
+int				mouse_hook(int button, int x, int y, void *win);
 
-	if (setup == 1)
-		win_ptr = mlx_new_window(g_mlx(0), sizex, sizey, win_name);
-	return (win_ptr);
-}
+void			draw_line(void *win, int x0, int y0, int x1, int y1);
+void			test_draw(void *win, int x, int y);
+
+#endif

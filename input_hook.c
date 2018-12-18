@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   testmlx.c                                          :+:      :+:    :+:   */
+/*   deal_input.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/18 18:15:27 by magrab            #+#    #+#             */
-/*   Updated: 2018/12/18 22:11:59 by magrab           ###   ########.fr       */
+/*   Created: 2018/12/18 22:01:03 by magrab            #+#    #+#             */
+/*   Updated: 2018/12/18 22:03:16 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int main()
+int	key_hook(int key, void *param)
 {
-	g_mlx(1);
-	if (!g_mlx(0))
-		return (-1);
-	g_win(1, 1000, 1000,"Test");
-	mlx_key_hook(g_win(0,0,0,0), key_hook, g_win(0,0,0,0));
-	mlx_mouse_hook(g_win(0,0,0,0), mouse_hook, g_win(0,0,0,0));
-	mlx_loop(g_mlx(0));
+	printf("key :%d\n", key);
+
+	if (key == 53) //esc key
+		exit(0);
+	if (key == 50)
+		mlx_clear_window(g_mlx(0), param);
+	return (0);
+}
+
+int mouse_hook(int button, int x, int y, void *win)
+{
+	printf("button :%d\n", button);
+
+	test_draw(win,x, y);
 	return (0);
 }
