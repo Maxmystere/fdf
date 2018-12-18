@@ -6,20 +6,20 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 18:15:27 by magrab            #+#    #+#             */
-/*   Updated: 2018/12/18 22:11:59 by magrab           ###   ########.fr       */
+/*   Updated: 2018/12/18 22:30:15 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int main()
+int		main(void)
 {
 	g_mlx(1);
 	if (!g_mlx(0))
 		return (-1);
-	g_win(1, 1000, 1000,"Test");
-	mlx_key_hook(g_win(0,0,0,0), key_hook, g_win(0,0,0,0));
-	mlx_mouse_hook(g_win(0,0,0,0), mouse_hook, g_win(0,0,0,0));
+	g_win(1, 1000, 1000, "Test");
+	mlx_key_hook(g_win(0, 0, 0, 0), key_hook, g_win(0, 0, 0, 0));
+	mlx_mouse_hook(g_win(0, 0, 0, 0), mouse_hook, g_win(0, 0, 0, 0));
 	mlx_loop(g_mlx(0));
 	return (0);
 }

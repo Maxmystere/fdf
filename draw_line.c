@@ -6,13 +6,13 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 20:30:03 by magrab            #+#    #+#             */
-/*   Updated: 2018/12/18 22:06:57 by magrab           ###   ########.fr       */
+/*   Updated: 2018/12/18 22:26:20 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	draw_line(void *win, int x0, int y0, int x1, int y1)
+void	draw_line(int x0, int y0, int x1, int y1)
 {
 	int dx;
 	int dy;
@@ -21,10 +21,10 @@ void	draw_line(void *win, int x0, int y0, int x1, int y1)
 
 	dx = abs(x1 - x0);
 	dy = abs(y1 - y0);
-	err = (dx>dy ? dx : -dy);
+	err = (dx > dy ? dx : -dy);
 	while (x0 != x1 || y0 != y1)
 	{
-		mlx_pixel_put(g_mlx, win, x0, y0, 0xFFFFFF);
+		mlx_pixel_put(g_mlx, g_win(0, 0, 0, 0), x0, y0, 0xFFFFFF);
 		e2 = err;
 		if (e2 > -dx)
 		{
@@ -39,7 +39,7 @@ void	draw_line(void *win, int x0, int y0, int x1, int y1)
 	}
 }
 
-void test_draw(void *win, int x, int y)
+void	test_draw(void *win, int x, int y)
 {
 	static int x0;
 	static int y0;
@@ -58,8 +58,8 @@ void test_draw(void *win, int x, int y)
 	}
 	if (x0 != 0 && x1 != 0)
 	{
-		printf("drawing :\nx0 = %d\ty0 = %d\nx1 = %d\ty1 = %d\n", x0, y0, x1, y1);
-		draw_line(win, x0, y0, x1, y1);
+		printf("draw :\nx0 = %d\ty0 = %d\nx1 = %d\ty1 = %d\n", x0, y0, x1, y1);
+		draw_line(x0, y0, x1, y1);
 		x0 = 0;
 		x1 = 0;
 		y0 = 0;
