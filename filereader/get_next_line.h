@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/18 22:03:51 by magrab            #+#    #+#             */
-/*   Updated: 2018/12/19 13:33:36 by magrab           ###   ########.fr       */
+/*   Created: 2018/11/19 18:25:38 by magrab            #+#    #+#             */
+/*   Updated: 2018/11/19 18:26:48 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-# include <mlx.h>
 # include <stdlib.h>
-# include <stdio.h>
-# include <math.h>
+# include <unistd.h>
+# include "libft/libft.h"
 
-void			*g_mlx(int setup);
-void			*g_win(int win, int sizex, int sizey, char *win_name);
+# define BUFF_SIZE 42
+# define MAX_FD 1023
 
-int				key_hook(int key, void *param);
-int				mouse_hook(int button, int x, int y, void *win);
-
-void			draw_line(int x0, int y0, int x1, int y1);
-void			test_draw(void *win, int x, int y);
-
-int				get_next_line(const int fd, char **line);
+int		get_next_line(const int fd, char **line);
 
 #endif
