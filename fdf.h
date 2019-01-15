@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:03:51 by magrab            #+#    #+#             */
-/*   Updated: 2019/01/15 17:20:09 by tferrieu         ###   ########.fr       */
+/*   Updated: 2019/01/15 18:47:01 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,8 @@ void			draw_line(int x0, int y0, int x1, int y1);
 void			test_draw(void *win, int x, int y);
 
 t_value			*init_value(int x, int y, int z, int c);
+
+int				drawmap(t_value **test, int dx, int dy, int space);
+t_value			**calcmap(int setup);
 
 #endif
