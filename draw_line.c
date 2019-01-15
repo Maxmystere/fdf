@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 20:30:03 by magrab            #+#    #+#             */
-/*   Updated: 2019/01/15 15:28:42 by magrab           ###   ########.fr       */
+/*   Updated: 2019/01/15 17:01:25 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	draw_line(int x0, int y0, int x1, int y1)
 	dx = abs(x1 - x0);
 	dy = abs(y1 - y0);
 	err = (dx > dy ? dx : -dy);
+	mlx_pixel_put(g_mlx, g_win(0, 0, 0, 0), x0, y0, 0xFFFFFF);
 	while (x0 != x1 || y0 != y1)
 	{
 		mlx_pixel_put(g_mlx, g_win(0, 0, 0, 0), x0, y0, 0xFFFFFF);

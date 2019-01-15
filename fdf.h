@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:03:51 by magrab            #+#    #+#             */
-/*   Updated: 2019/01/15 17:04:39 by tferrieu         ###   ########.fr       */
+/*   Updated: 2019/01/15 17:09:17 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct	s_value{
 	int x;
 	int y;
 	int z;
-	int color;
+	int c;
 }				t_value;
 
 void			*g_mlx(int setup);
