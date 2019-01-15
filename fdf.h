@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:03:51 by magrab            #+#    #+#             */
-/*   Updated: 2018/12/19 13:33:36 by magrab           ###   ########.fr       */
+/*   Updated: 2019/01/15 17:04:39 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <math.h>
+
+typedef struct	s_value{
+	int x;
+	int y;
+	int z;
+	int color;
+}				t_value;
 
 void			*g_mlx(int setup);
 void			*g_win(int win, int sizex, int sizey, char *win_name);
