@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:03:51 by magrab            #+#    #+#             */
-/*   Updated: 2019/01/15 17:09:17 by magrab           ###   ########.fr       */
+/*   Updated: 2019/01/15 17:16:24 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ int				mouse_hook(int button, int x, int y, void *win);
 void			draw_line(int x0, int y0, int x1, int y1);
 void			test_draw(void *win, int x, int y);
 
-int				get_next_line(const int fd, char **line);
+t_value			*init_value(int x, int y, int z, int c);
 
 #endif
