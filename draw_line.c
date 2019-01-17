@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 20:30:03 by magrab            #+#    #+#             */
-/*   Updated: 2019/01/17 19:35:05 by magrab           ###   ########.fr       */
+/*   Updated: 2019/01/17 19:43:52 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	draw_line(int x0, int y0, int x1, int y1)
 {
-	int dx;
-	int dy;
-	int err;
-	int e2;
+	int		dx;
+	int		dy;
+	int		err;
+	int		e2;
 
 	dx = (int)fabs((double)(x1 - x0));
 	dy = (int)fabs((double)(y1 - y0));

@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 18:15:27 by magrab            #+#    #+#             */
-/*   Updated: 2019/01/17 19:32:08 by magrab           ###   ########.fr       */
+/*   Updated: 2019/01/17 19:47:53 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ int		drawmap(t_value **test, int dx, int dy, int space)
 
 	x = 0;
 	y = 0;
+	mlx_clear_window(g_mlx(0), g_win(0));
 	if (!test)
 		return (-1);
 	while (test[x])

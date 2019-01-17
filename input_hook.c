@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:01:03 by magrab            #+#    #+#             */
-/*   Updated: 2019/01/15 18:55:09 by magrab           ###   ########.fr       */
+/*   Updated: 2019/01/17 19:49:19 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,46 +33,19 @@ int		key_hook(int key, void *param)
 	if (key == 53)
 		exit(0);
 	if (key == 50)
-	{
-		mlx_clear_window(g_mlx(0), param);
 		drawmap(calcmap(0), dx, dy, spc);
-	}
 	if (key == 69)
-	{
-		spc++;
-		mlx_clear_window(g_mlx(0), param);
-		drawmap(calcmap(0), dx, dy, spc);
-	}
+		drawmap(calcmap(0), dx, dy, ++spc);
 	if (key == 78)
-	{
-		spc--;
-		mlx_clear_window(g_mlx(0), param);
-		drawmap(calcmap(0), dx, dy, spc);
-	}
+		drawmap(calcmap(0), dx, dy, --spc);
 	if (key == 123)
-	{
-		dx--;
-		mlx_clear_window(g_mlx(0), param);
-		drawmap(calcmap(0), dx, dy, spc);
-	}
+		drawmap(calcmap(0), --dx, dy, spc);
 	if (key == 124)
-	{
-		dx++;
-		mlx_clear_window(g_mlx(0), param);
-		drawmap(calcmap(0), dx, dy, spc);
-	}
+		drawmap(calcmap(0), ++dx, dy, spc);
 	if (key == 125)
-	{
-		dy++;
-		mlx_clear_window(g_mlx(0), param);
-		drawmap(calcmap(0), dx, dy, spc);
-	}
+		drawmap(calcmap(0), dx, ++dy, spc);
 	if (key == 126)
-	{
-		dy--;
-		mlx_clear_window(g_mlx(0), param);
-		drawmap(calcmap(0), dx, dy, spc);
-	}
+		drawmap(calcmap(0), dx, --dy, spc);
 	return (0);
 }
 
