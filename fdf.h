@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:03:51 by magrab            #+#    #+#             */
-/*   Updated: 2019/01/15 18:47:01 by magrab           ###   ########.fr       */
+/*   Updated: 2019/01/17 19:39:02 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,14 @@ typedef struct	s_value{
 	int c;
 }				t_value;
 
+typedef struct	s_win{
+	int		sizex;
+	int		sizey;
+	char	*title;
+}				t_win;
+
 void			*g_mlx(int setup);
-void			*g_win(int win, int sizex, int sizey, char *win_name);
+void			*g_win(t_win *win);
 
 int				key_hook(int key, void *param);
 int				mouse_hook(int button, int x, int y, void *win);

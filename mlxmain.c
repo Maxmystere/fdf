@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 18:15:27 by magrab            #+#    #+#             */
-/*   Updated: 2019/01/15 18:54:48 by magrab           ###   ########.fr       */
+/*   Updated: 2019/01/17 19:32:08 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int		drawmap(t_value **test, int dx, int dy, int space)
 	{
 		while (test[x][y].c != -42)
 		{
-			mlx_pixel_put(g_mlx, g_win(0, 0, 0, 0),
+			mlx_pixel_put(g_mlx, g_win(0),
 					dx + test[x][y].x + test[x][y].x * space,
 					dy + test[x][y].y + test[x][y].y * space,
 					test[x][y].c);
@@ -81,11 +81,18 @@ int		drawmap(t_value **test, int dx, int dy, int space)
 
 int		main(void)
 {
+	t_win window;
+
+	window.sizex = 1000;
+	window.sizey = 1000;
+	window.title = "TEST";
 	if (!g_mlx(1))
 		return (-1);
-	g_win(1, 1000, 1000, "Test");
-	mlx_key_hook(g_win(0, 0, 0, 0), key_hook, g_win(0, 0, 0, 0));
-	mlx_mouse_hook(g_win(0, 0, 0, 0), mouse_hook, g_win(0, 0, 0, 0));
+	if (!(g_win(&window)))
+		return (-1);
+	
+	mlx_key_hook(g_win(0), key_hook, g_win(0));
+	mlx_mouse_hook(g_win(0), mouse_hook, g_win(0));
 
 	calcmap(1);
 

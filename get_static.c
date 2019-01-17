@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 20:42:29 by magrab            #+#    #+#             */
-/*   Updated: 2018/12/18 22:07:23 by magrab           ###   ########.fr       */
+/*   Updated: 2019/01/17 19:38:43 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ void	*g_mlx(int setup)
 	return (mlx_ptr);
 }
 
-void	*g_win(int setup, int sizex, int sizey, char *win_name)
+void	*g_win(t_win *win)
 {
 	static void *win_ptr;
 
-	if (setup == 1)
-		win_ptr = mlx_new_window(g_mlx(0), sizex, sizey, win_name);
+	if (win != 0)
+		win_ptr = mlx_new_window(g_mlx(0), win->sizex, win->sizey, win->title);
 	return (win_ptr);
 }
