@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:01:03 by magrab            #+#    #+#             */
-/*   Updated: 2019/01/17 19:49:19 by magrab           ###   ########.fr       */
+/*   Updated: 2019/01/18 16:27:50 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 
 int		key_hook(int key, void *param)
 {
-	static int dx = 0;
-	static int dy = 0;
+	static int dx = WINX / 2;
+	static int dy = WINY / 2;
 	static int spc = 0;
 
 	printf("key :%d\n", key);

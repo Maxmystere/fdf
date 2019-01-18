@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 18:15:27 by magrab            #+#    #+#             */
-/*   Updated: 2019/01/17 19:47:53 by magrab           ###   ########.fr       */
+/*   Updated: 2019/01/18 16:35:04 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,8 @@ int		main(void)
 {
 	t_win window;
 
-	window.sizex = 1000;
-	window.sizey = 1000;
+	window.sizex = WINX;
+	window.sizey = WINY;
 	window.title = "TEST";
 	if (!g_mlx(1))
 		return (-1);
@@ -97,7 +97,7 @@ int		main(void)
 
 	calcmap(1);
 
-	drawmap(calcmap(0), 0, 0, 0);
+	drawmap(calcmap(0), WINX / 2 - 50, WINY / 2 - 50, 50);
 
 	mlx_loop(g_mlx(0));
 	return (0);
