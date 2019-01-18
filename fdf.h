@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:03:51 by magrab            #+#    #+#             */
-/*   Updated: 2019/01/17 19:39:02 by magrab           ###   ########.fr       */
+/*   Updated: 2019/01/18 16:59:46 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <math.h>
-#include "libft/libft.h"
+# include "libft/libft.h"
+
+# define WINX 1000
+# define WINY 1000
 
 typedef struct	s_value{
 	int x;
@@ -27,6 +30,7 @@ typedef struct	s_value{
 }				t_value;
 
 typedef struct	s_win{
+	int		win;
 	int		sizex;
 	int		sizey;
 	char	*title;
