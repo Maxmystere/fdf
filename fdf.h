@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:03:51 by magrab            #+#    #+#             */
-/*   Updated: 2019/01/18 16:59:46 by magrab           ###   ########.fr       */
+/*   Updated: 2019/01/21 19:39:10 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,44 @@ typedef struct	s_value{
 }				t_value;
 
 typedef struct	s_win{
-	int		win;
 	int		sizex;
 	int		sizey;
 	char	*title;
 }				t_win;
 
-void			*g_mlx(int setup);
-void			*g_win(t_win *win);
+typedef struct	s_cam{
+	int		x;
+	int		y;
+	int		z;
+	int		rx;
+	int		ry;
+	int		rz;
+}				t_cam;
 
-int				key_hook(int key, void *param);
+typedef struct	s_fdf{
+	void	*mlx;
+	void	*win;
+	void	*img;
+	char	*istr;
+	t_win	p_win;
+	t_cam	cam;
+}				t_fdf;
+
+/*
+** void			*g_mlx(int setup);
+** void			*g_win(t_win *win);
+*/
+
+int				key_press(int key, void *param);
+int				key_release(int key, void *param);
 int				mouse_hook(int button, int x, int y, void *win);
+int				mouse_move(int x, int y, void *param);
 
 void			draw_line(int x0, int y0, int x1, int y1);
 void			test_draw(void *win, int x, int y);
 
 t_value			*init_value(int x, int y, int z, int c);
+t_fdf			*init_mlx(int winnb, char **winname);
 
 int				drawmap(t_value **test, int dx, int dy, int space);
 t_value			**calcmap(int setup);
