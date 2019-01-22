@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:03:51 by magrab            #+#    #+#             */
-/*   Updated: 2019/01/21 19:39:10 by magrab           ###   ########.fr       */
+/*   Updated: 2019/01/22 16:06:28 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,12 @@ typedef struct	s_fdf{
 ** void			*g_win(t_win *win);
 */
 
-int				key_press(int key, void *param);
-int				key_release(int key, void *param);
-int				mouse_hook(int button, int x, int y, void *win);
-int				mouse_move(int x, int y, void *param);
+int				key_press(int key, t_fdf *fdf);
+int				key_release(int key, t_fdf *fdf);
+int				mouse_hook(int button, int x, int y, t_fdf *fdf);
+int				mouse_move(int x, int y, t_fdf *fdf);
 
-void			draw_line(int x0, int y0, int x1, int y1);
+void			draw_line(t_fdf *fdf, t_value pos0, t_value pos1);
 void			test_draw(void *win, int x, int y);
 
 t_value			*init_value(int x, int y, int z, int c);

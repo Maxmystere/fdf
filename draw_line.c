@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 20:30:03 by magrab            #+#    #+#             */
-/*   Updated: 2019/01/21 19:40:08 by magrab           ###   ########.fr       */
+/*   Updated: 2019/01/22 15:41:22 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,30 +20,30 @@ void	fill_pixel(char *istr, int x, int y, int color)
 	istr[x * 4 + y * 4 * 1000 + 3] = color / 0x1000000;
 }
 
-void	draw_line(int x0, int y0, int x1, int y1)
+void	draw_line(t_fdf *fdf, t_value pos0, t_value pos1)
 {
 	int		dx;
 	int		dy;
 	int		err;
 	int		e2;
 
-	dx = (int)fabs((double)(x1 - x0));
-	dy = (int)fabs((double)(y1 - y0));
+	dx = (int)fabs((double)(pos1.x - pos0.x));
+	dy = (int)fabs((double)(pos1.y - pos0.y));
 	err = (dx > dy ? dx : -dy);
-	mlx_pixel_put(g_mlx(0), g_win(0), x0, y0, 0xFFFFFF);
-	while (x0 != x1 || y0 != y1)
+	mlx_pixel_put(fdf->mlx, fdf->win, pos0.x, pos0.y, pos0.c);
+	while (pos0.x != pos1.x || pos0.y != pos1.y)
 	{
-		mlx_pixel_put(g_mlx(0), g_win(0), x0, y0, 0xFFFFFFFFFFF % 0x1000000);
+		mlx_pixel_put(fdf->mlx, fdf->win, pos0.x, pos0.y, pos1.c);
 		e2 = err;
 		if (e2 > -dx)
 		{
 			err -= dy;
-			x0 += (x0 < x1 ? 1 : -1);
+			pos0.x += (pos0.x < pos1.x ? 1 : -1);
 		}
 		if (e2 < dy)
 		{
 			err += dx;
-			y0 += (y0 < y1 ? 1 : -1);
+			pos0.y += (pos0.y < pos1.y ? 1 : -1);
 		}
 	}
 }
@@ -68,7 +68,7 @@ void	test_draw(void *win, int x, int y)
 	if (x0 != 0 && x1 != 0)
 	{
 		printf("draw :\nx0 = %d\ty0 = %d\nx1 = %d\ty1 = %d\n", x0, y0, x1, y1);
-		draw_line(x0, y0, x1, y1);
+		//draw_line(x0, y0, x1, y1);
 		x0 = 0;
 		x1 = 0;
 		y0 = 0;
