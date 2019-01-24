@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:03:51 by magrab            #+#    #+#             */
-/*   Updated: 2019/01/24 16:35:22 by magrab           ###   ########.fr       */
+/*   Updated: 2019/01/24 18:15:24 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include <math.h>
 # include "libft/libft.h"
 
-# define WINX 1000
-# define WINY 1000
+# define WINX 500
+# define WINY 500
 
 typedef struct	s_value{
 	int x;
@@ -47,8 +47,12 @@ typedef struct	s_cam{
 typedef struct	s_fdf{
 	void	*mlx;
 	void	*win;
+	t_pos	**map;
 	void	*img;
 	char	*istr;
+	int		bpp;
+	int		size_line;
+	int		endian;
 	t_win	p_win;
 	t_cam	cam;
 }				t_fdf;
@@ -63,13 +67,15 @@ int				key_release(int key, t_fdf *fdf);
 int				mouse_hook(int button, int x, int y, t_fdf *fdf);
 int				mouse_move(int x, int y, t_fdf *fdf);
 
+void			fill_pixel(t_fdf *fdf, int x, int y, int color);
+void			fill_line(t_fdf *fdf, t_pos pos0, t_pos pos1);
 void			draw_line(t_fdf *fdf, t_pos pos0, t_pos pos1);
 void			test_draw(t_fdf *fdf, int x, int y);
 
 t_pos			*init_value(int x, int y, int z, int c);
 t_fdf			*init_mlx(int winnb, char **winname);
 
-int				drawmap(t_pos **test, int dx, int dy, int space);
+void			*draw_map(t_fdf *fdf, t_pos **tab, t_cam pos);
 t_pos			**calcmap(int setup);
 
 #endif

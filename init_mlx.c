@@ -31,6 +31,9 @@ t_fdf			*init_mlx(int winnb, char **winname)
 	t_fdf	*fdf;
 	void	*mlx;
 
+	// Delete when have real function
+	calcmap(1);
+
 	if (winnb < 2)
 		return (NULL);
 	if (!(fdf = malloc(sizeof(t_fdf) * winnb)))
@@ -42,10 +45,11 @@ t_fdf			*init_mlx(int winnb, char **winname)
 	{
 		fdf[v].mlx = mlx;
 		fdf[v].cam = basic_cam();
-		fdf[v].p_win.sizex = 1000;
-		fdf[v].p_win.sizey = 1000;
+		fdf[v].p_win.sizex = WINX;
+		fdf[v].p_win.sizey = WINY;
+		fdf[v].map = calcmap(0);
 		fdf[v].p_win.title = winname[v + 1];
-		if (!(fdf[v].win = mlx_new_window(mlx, 1000, 1000, winname[v + 1])))
+		if (!(fdf[v].win = mlx_new_window(mlx, WINX, WINY, winname[v + 1])))
 			return (NULL);
 		fdf[v].img = NULL;
 		fdf[v].istr = NULL;

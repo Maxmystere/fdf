@@ -23,15 +23,28 @@
 ** 126 = up key
 */
 
+t_cam	move_pos(t_fdf *fdf, int key)
+{
+	if (key == 123)
+		fdf->cam.x--;
+	else if (key == 124)
+		fdf->cam.x++;
+	else if (key == 125)
+		fdf->cam.y++;
+	else if (key == 126)
+		fdf->cam.y--;
+	//ft_printf("cam pos :\nx = %d\ny = %d\n", fdf->cam.x, fdf->cam.y);
+	return (fdf->cam);
+}
+
 int		key_press(int key, t_fdf *fdf)
 {
-	static int dx = 0;
-	static int dy = 0;
-	static int spc = 500;
-
-	ft_printf("win : %s\tkey :%d\n", fdf->p_win.title, key);
 	if (key == 53)
 		exit(0);
+	if (123 <= key && key <= 126)
+		draw_map(fdf, fdf->map, move_pos(fdf, key));
+	else
+		ft_printf("win : %s\tkey :%d\n", fdf->p_win.title, key);
 	/*
 	if (key == 50)
 		drawmap(calcmap(0), dx, dy, spc);
