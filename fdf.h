@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:03:51 by magrab            #+#    #+#             */
-/*   Updated: 2019/01/22 16:06:28 by magrab           ###   ########.fr       */
+/*   Updated: 2019/01/24 16:35:22 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int				mouse_hook(int button, int x, int y, t_fdf *fdf);
 int				mouse_move(int x, int y, t_fdf *fdf);
 
 void			draw_line(t_fdf *fdf, t_value pos0, t_value pos1);
-void			test_draw(void *win, int x, int y);
+void			test_draw(t_fdf *fdf, int x, int y);
 
 t_value			*init_value(int x, int y, int z, int c);
 t_fdf			*init_mlx(int winnb, char **winname);

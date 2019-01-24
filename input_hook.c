@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:01:03 by magrab            #+#    #+#             */
-/*   Updated: 2019/01/22 16:08:42 by magrab           ###   ########.fr       */
+/*   Updated: 2019/01/24 16:34:50 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int		key_release(int key, t_fdf *fdf)
 int		mouse_hook(int button, int x, int y, t_fdf *fdf)
 {
 	printf("button :%d\n", button);
+	test_draw(fdf, x, y);
 	return (0);
 }
 
