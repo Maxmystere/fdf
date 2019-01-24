@@ -27,7 +27,7 @@ typedef struct	s_value{
 	int y;
 	int z;
 	int c;
-}				t_value;
+}				t_pos;
 
 typedef struct	s_win{
 	int		sizex;
@@ -63,13 +63,13 @@ int				key_release(int key, t_fdf *fdf);
 int				mouse_hook(int button, int x, int y, t_fdf *fdf);
 int				mouse_move(int x, int y, t_fdf *fdf);
 
-void			draw_line(t_fdf *fdf, t_value pos0, t_value pos1);
+void			draw_line(t_fdf *fdf, t_pos pos0, t_pos pos1);
 void			test_draw(t_fdf *fdf, int x, int y);
 
-t_value			*init_value(int x, int y, int z, int c);
+t_pos			*init_value(int x, int y, int z, int c);
 t_fdf			*init_mlx(int winnb, char **winname);
 
-int				drawmap(t_value **test, int dx, int dy, int space);
-t_value			**calcmap(int setup);
+int				drawmap(t_pos **test, int dx, int dy, int space);
+t_pos			**calcmap(int setup);
 
 #endif

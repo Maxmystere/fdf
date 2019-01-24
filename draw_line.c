@@ -20,7 +20,7 @@ void	fill_pixel(char *istr, int x, int y, int color)
 	istr[x * 4 + y * 4 * 1000 + 3] = color / 0x1000000;
 }
 
-void	draw_line(t_fdf *fdf, t_value pos0, t_value pos1)
+void	draw_line(t_fdf *fdf, t_pos pos0, t_pos pos1)
 {
 	int		dx;
 	int		dy;
@@ -50,8 +50,8 @@ void	draw_line(t_fdf *fdf, t_value pos0, t_value pos1)
 
 void	test_draw(t_fdf *fdf, int x, int y)
 {
-	static t_value pos0 = {0,0};
-	static t_value pos1 = {0, 0};
+	static t_pos pos0 = {0,0};
+	static t_pos pos1 = {0, 0};
 
 	ft_printf("pos0 %d\t%d\npos1 %d\t%d\n", pos0.x, pos0.y, pos1.x, pos1.y);
 	if (pos0.x == 0)

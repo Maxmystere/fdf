@@ -12,14 +12,14 @@
 
 #include "fdf.h"
 
-t_value	**calcmap(int setup)
+t_pos	**calcmap(int setup)
 {
-	static t_value **test;
+	static t_pos **test;
 
 	if (setup == 1)
 	{
-		test = malloc(5 * sizeof(t_value **));
-		test[0] = malloc(3 * sizeof(t_value));
+		test = malloc(5 * sizeof(t_pos **));
+		test[0] = malloc(3 * sizeof(t_pos));
 		test[0][0].x = 0;
 		test[0][0].y = 0;
 		test[0][0].z = 0;
@@ -29,7 +29,7 @@ t_value	**calcmap(int setup)
 		test[0][1].z = 10;
 		test[0][1].c = 0xFF8000;
 		test[0][2].c = -42;
-		test[1] = malloc(3 * sizeof(t_value));
+		test[1] = malloc(3 * sizeof(t_pos));
 		test[1][0].x = 0;
 		test[1][0].y = 10;
 		test[1][0].z = 0;
@@ -39,7 +39,7 @@ t_value	**calcmap(int setup)
 		test[1][1].z = 10;
 		test[1][1].c = 0xFFFFFF;
 		test[1][2].c = -42;
-		test[2] = malloc(3 * sizeof(t_value));
+		test[2] = malloc(3 * sizeof(t_pos));
 		test[2][0].x = 10;
 		test[2][0].y = 0;
 		test[2][0].z = 0;
@@ -49,7 +49,7 @@ t_value	**calcmap(int setup)
 		test[2][1].z = 10;
 		test[2][1].c = 0xFFFFFF;
 		test[2][2].c = -42;
-		test[3] = malloc(3 * sizeof(t_value));
+		test[3] = malloc(3 * sizeof(t_pos));
 		test[3][0].x = 10;
 		test[3][0].y = 10;
 		test[3][0].z = 0;
@@ -64,7 +64,7 @@ t_value	**calcmap(int setup)
 	return (test);
 }
 
-void draw_map(t_fdf *fdf, )
+void draw_map(t_fdf *fdf, t_pos pos)
 {
 }
 
