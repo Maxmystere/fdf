@@ -39,7 +39,6 @@ void *draw_iso(t_fdf *fdf, t_pos **tab, t_cam pos)
 			pos2.x = (x + 1 - y) * 64 + fdf->p_win.sx / 2;
 			pos2.y = (x + 1 + y) * 32 + fdf->p_win.sy / 2 + tab[x + 1][y].z * pos.z;
 			pos2.c = tab[x + 1][y].c;
-            printf("pos0\t%d\t%d\t%x\npos1\t%d\t%d\t%x\npos2\t%d\t%d\t%x\n", pos0.x, pos0.y, pos0.c, pos1.x, pos1.y, pos1.c, pos2.x, pos2.y, pos2.c);
 			fill_line(fdf, pos0, pos1);
 			fill_line(fdf, pos0, pos2);
 			y++;

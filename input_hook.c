@@ -70,13 +70,13 @@ int		key_press(int key, t_fdf *fdf)
 
 int		key_release(int key, t_fdf *fdf)
 {
-	printf("key release :%d\n", key);
+	ft_printf("key release :%d\n", key);
 	return (0);
 }
 
 int		mouse_hook(int button, int x, int y, t_fdf *fdf)
 {
-	printf("button :%d\n", button);
+	ft_printf("button :%d\tpos: %d\t%d\n", button, x, y);
 	test_draw(fdf, x, y);
 	return (0);
 }
