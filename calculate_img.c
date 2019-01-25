@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 19:44:08 by magrab            #+#    #+#             */
-/*   Updated: 2019/01/25 19:44:09 by magrab           ###   ########.fr       */
+/*   Updated: 2019/01/25 21:42:08 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void *draw_iso(t_fdf *fdf, t_pos **tab, t_cam pos)
 
 	fdf->istr = (int *)mlx_get_data_addr(fdf->img[ISO], &(fdf->bpp),
 		&(fdf->s_l), &(fdf->e));
-    bzero(fdf->istr, WINX * WINY * 4);
+    ft_bzero(fdf->istr, WINX * WINY * 4);
 	mlx_clear_window(fdf->mlx, fdf->win);
 	x = 0;
 	while (tab[x] && tab[x + 1])
