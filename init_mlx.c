@@ -45,8 +45,8 @@ t_fdf			*init_mlx(int winnb, char **winname)
 	{
 		fdf[v].mlx = mlx;
 		fdf[v].cam = basic_cam();
-		fdf[v].p_win.sizex = WINX;
-		fdf[v].p_win.sizey = WINY;
+		fdf[v].p_win.sx = WINX;
+		fdf[v].p_win.sy = WINY;
 		fdf[v].map = calcmap(0);
 		fdf[v].p_win.title = winname[v + 1];
 		if (!(fdf[v].win = mlx_new_window(mlx, WINX, WINY, winname[v + 1])))

@@ -14,8 +14,8 @@
 
 void	fill_pixel(t_fdf *fdf, int x, int y, int color)
 {
-	if (0 <= x && x < fdf->p_win.sizex && 0 <= y && y < fdf->p_win.sizey)
-		fdf->istr[x + y * fdf->p_win.sizex] = color;
+	if (0 <= x && x < fdf->p_win.sx && 0 <= y && y < fdf->p_win.sy)
+		fdf->istr[x + y * fdf->p_win.sx] = color;
 }
 
 void	fill_line(t_fdf *fdf, t_pos pos0, t_pos pos1)

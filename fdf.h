@@ -30,8 +30,8 @@ typedef struct	s_value{
 }				t_pos;
 
 typedef struct	s_win{
-	int		sizex;
-	int		sizey;
+	int		sx;
+	int		sy;
 	char	*title;
 }				t_win;
 
@@ -51,8 +51,8 @@ typedef struct	s_fdf{
 	void	*img;
 	int		*istr;
 	int		bpp;
-	int		size_line;
-	int		endian;
+	int		s_l;
+	int		e;
 	t_win	p_win;
 	t_cam	cam;
 }				t_fdf;
