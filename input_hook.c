@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:01:03 by magrab            #+#    #+#             */
-/*   Updated: 2019/01/24 16:34:50 by magrab           ###   ########.fr       */
+/*   Updated: 2019/01/26 00:21:14 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_cam	move_pos(t_fdf *fdf, int key)
 int		key_press(int key, t_fdf *fdf)
 {
 	if (key == 53)
-		close_hook(fdf);
+		close_hook(fdf); // Problem when closing from key cause not the first fdf array
 	if (123 <= key && key <= 126)
 		draw_iso(fdf, fdf->map, move_pos(fdf, key));
 	else if (key == 69 || key == 78)

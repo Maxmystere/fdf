@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 16:53:32 by magrab            #+#    #+#             */
-/*   Updated: 2019/01/25 17:38:48 by magrab           ###   ########.fr       */
+/*   Updated: 2019/01/25 23:50:10 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ int				main(int ac, char **av)
 		draw_iso(fdf, fdf->map, fdf->cam[0]);
 		mlx_hook(fdf[x].win, 2, 0, key_press, &(fdf[x]));
 		mlx_hook(fdf[x].win, 3, 0, key_release, &(fdf[x]));
-		mlx_hook(fdf[x].win, 17, 0, close_hook, &(fdf[x]));
+		mlx_hook(fdf[x].win, 17, 0, close_hook, fdf);
 		mlx_mouse_hook(fdf[x].win, mouse_hook, &(fdf[x]));
 	}
 	if (ac > 1)

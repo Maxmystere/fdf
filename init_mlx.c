@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "fdf.h"
+
 /*
 static t_cam *basic_cam(void)
 {
@@ -38,14 +39,15 @@ static int	load_imgs(t_fdf *fdf)
 	x = 0;
 	while (x < MAXP)
 	{
-		if (!(fdf->img[x] = mlx_new_image(fdf->mlx, fdf->p_win.sx, fdf->p_win.sy)))
+		if (!(fdf->img[x] = mlx_new_image(fdf->mlx,
+											fdf->p_win.sx, fdf->p_win.sy)))
 			return (-1);
 		x++;
 	}
 	return (0);
 }
 
-t_fdf *init_mlx(int winnb, char **winname, t_pos **map)
+t_fdf		*init_mlx(int winnb, char **winname, t_pos **map)
 {
 	size_t	v;
 	t_fdf	*fdf;
@@ -55,6 +57,7 @@ t_fdf *init_mlx(int winnb, char **winname, t_pos **map)
 		return (NULL);
 	if (!(fdf = malloc(sizeof(t_fdf) * winnb)))
 		return (NULL);
+	fdf[winnb - 1].mlx = NULL;
 	if (!(mlx = mlx_init()))
 		return (NULL);
 	v = -1;
