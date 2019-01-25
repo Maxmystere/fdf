@@ -29,7 +29,7 @@
 # define ISO 0
 # define MAXP 1
 
-typedef struct	s_value{
+typedef struct	s_pos{
 	int x;
 	int y;
 	int z;
