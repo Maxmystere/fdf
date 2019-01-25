@@ -39,7 +39,7 @@ t_cam	move_pos(t_fdf *fdf, int key)
 int		key_press(int key, t_fdf *fdf)
 {
 	if (key == 53)
-		exit(0);
+		close_hook(fdf);
 	if (123 <= key && key <= 126)
 		draw_iso(fdf, fdf->map, move_pos(fdf, key));
 	else if (key == 69 || key == 78)

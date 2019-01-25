@@ -107,6 +107,7 @@ int				main(int ac, char **av)
 		draw_iso(fdf, fdf->map, fdf->cam[0]);
 		mlx_hook(fdf[x].win, 2, 0, key_press, &(fdf[x]));
 		mlx_hook(fdf[x].win, 3, 0, key_release, &(fdf[x]));
+		mlx_hook(fdf[x].win, 17, 0, close_hook, &(fdf[x]));
 		mlx_mouse_hook(fdf[x].win, mouse_hook, &(fdf[x]));
 	}
 	if (ac > 1)

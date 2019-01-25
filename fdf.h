@@ -92,4 +92,6 @@ t_fdf			*init_mlx(int winnb, char **winname, t_pos **map);
 void			*draw_iso(t_fdf *fdf, t_pos **tab, t_cam pos);
 t_pos			**calcmap(int setup);
 
+int				close_hook(t_fdf *fdf);
+
 #endif
