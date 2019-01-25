@@ -20,59 +20,66 @@ void	fill_pixel(t_fdf *fdf, int x, int y, int color)
 
 void	fill_line(t_fdf *fdf, t_pos pos0, t_pos pos1)
 {
-	int		dx;
-	int		dy;
+	t_pos	d;
 	int		err;
 	int		e2;
 
-	dx = (int)fabs((double)(pos1.x - pos0.x));
-	dy = (int)fabs((double)(pos1.y - pos0.y));
-	err = (dx > dy ? dx : -dy);
+	d.x = ft_abs(pos1.x - pos0.x);
+	d.y = ft_abs(pos1.y - pos0.y);
+	d.z = (pos0.x < pos1.x ? 1 : -1);
+	d.c = (pos0.y < pos1.y ? 1 : -1);
+	err = (d.x > d.y ? d.x : -d.y);
 	fill_pixel(fdf, pos0.x, pos0.y, pos0.c);
-	while (pos0.x != pos1.x || pos0.y != pos1.y)
+	while (pos0.x != pos1.x && pos0.y != pos1.y)
 	{
 		fill_pixel(fdf, pos0.x, pos0.y, pos0.c);
 		e2 = err;
-		if (e2 > -dx)
+		if (e2 > -d.x)
 		{
-			err -= dy;
-			pos0.x += (pos0.x < pos1.x ? 1 : -1);
+			err -= d.y;
+			pos0.x += d.z;
 		}
-		if (e2 < dy)
+		if (e2 < d.y)
 		{
-			err += dx;
-			pos0.y += (pos0.y < pos1.y ? 1 : -1);
+			err += d.x;
+			pos0.y += d.c;
 		}
 	}
 }
 
+/*
+** d.z = sx
+** d.c = sy
+*/
 void	draw_line(t_fdf *fdf, t_pos pos0, t_pos pos1)
 {
-	int		dx;
-	int		dy;
+	t_pos	d;
 	int		err;
 	int		e2;
 
-	dx = (int)fabs((double)(pos1.x - pos0.x));
-	dy = (int)fabs((double)(pos1.y - pos0.y));
-	err = (dx > dy ? dx : -dy);
+	d.x = ft_abs(pos1.x - pos0.x);
+	d.y = ft_abs(pos1.y - pos0.y);
+	d.z = (pos0.x < pos1.x ? 1 : -1);
+	d.c = (pos0.y < pos1.y ? 1 : -1);
+	err = (d.x > d.y ? d.x : -d.y);
 	mlx_pixel_put(fdf->mlx, fdf->win, pos0.x, pos0.y, pos0.c);
-	while (pos0.x != pos1.x || pos0.y != pos1.y)
+	while (pos0.x != pos1.x && pos0.y != pos1.y)
 	{
 		mlx_pixel_put(fdf->mlx, fdf->win, pos0.x, pos0.y, pos1.c);
 		e2 = err;
-		if (e2 > -dx)
+		if (e2 > -d.x)
 		{
-			err -= dy;
-			pos0.x += (pos0.x < pos1.x ? 1 : -1);
+			err -= d.y;
+			pos0.x += d.z;
 		}
-		if (e2 < dy)
+		if (e2 < d.y)
 		{
-			err += dx;
-			pos0.y += (pos0.y < pos1.y ? 1 : -1);
+			err += d.x;
+			pos0.y += d.c;
 		}
 	}
 }
+
 
 void	test_draw(t_fdf *fdf, int x, int y)
 {
