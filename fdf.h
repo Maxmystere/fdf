@@ -22,6 +22,13 @@
 # define WINX 1000
 # define WINY 1000
 
+/*
+** Maximum number of projections
+*/
+
+# define ISO 0
+# define MAXP 1
+
 typedef struct	s_value{
 	int x;
 	int y;
@@ -44,17 +51,24 @@ typedef struct	s_cam{
 	int		rz;
 }				t_cam;
 
+/*
+** cp : Current projection
+** 0 = Iso
+** 1 = //
+*/
+
 typedef struct	s_fdf{
 	void	*mlx;
 	void	*win;
 	t_pos	**map;
-	void	*img;
+	int		cp;
+	t_cam	cam[MAXP];
+	void	*img[MAXP];
 	int		*istr;
 	int		bpp;
 	int		s_l;
 	int		e;
 	t_win	p_win;
-	t_cam	cam;
 }				t_fdf;
 
 /*
@@ -73,9 +87,9 @@ void			draw_line(t_fdf *fdf, t_pos pos0, t_pos pos1);
 void			test_draw(t_fdf *fdf, int x, int y);
 
 t_pos			*init_value(int x, int y, int z, int c);
-t_fdf			*init_mlx(int winnb, char **winname);
+t_fdf			*init_mlx(int winnb, char **winname, t_pos **map);
 
-void			*draw_map(t_fdf *fdf, t_pos **tab, t_cam pos);
+void			*draw_iso(t_fdf *fdf, t_pos **tab, t_cam pos);
 t_pos			**calcmap(int setup);
 
 #endif

@@ -26,15 +26,14 @@
 t_cam	move_pos(t_fdf *fdf, int key)
 {
 	if (key == 123)
-		fdf->cam.x--;
+		fdf->cam[fdf->cp].x--;
 	else if (key == 124)
-		fdf->cam.x++;
+		fdf->cam[fdf->cp].x++;
 	else if (key == 125)
-		fdf->cam.y++;
+		fdf->cam[fdf->cp].y++;
 	else if (key == 126)
-		fdf->cam.y--;
-	//ft_printf("cam pos :\nx = %d\ny = %d\n", fdf->cam.x, fdf->cam.y);
-	return (fdf->cam);
+		fdf->cam[fdf->cp].y--;
+	return (fdf->cam[fdf->cp]);
 }
 
 int		key_press(int key, t_fdf *fdf)
@@ -42,7 +41,12 @@ int		key_press(int key, t_fdf *fdf)
 	if (key == 53)
 		exit(0);
 	if (123 <= key && key <= 126)
-		draw_map(fdf, fdf->map, move_pos(fdf, key));
+		draw_iso(fdf, fdf->map, move_pos(fdf, key));
+	else if (key == 69 || key == 78)
+	{
+		key == 78 ? fdf->cam[fdf->cp].z++ : fdf->cam[fdf->cp].z--;
+		draw_iso(fdf, fdf->map, fdf->cam[fdf->cp]);
+	}
 	else
 		ft_printf("win : %s\tkey :%d\n", fdf->p_win.title, key);
 	/*
