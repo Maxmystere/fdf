@@ -74,7 +74,7 @@ void *draw_map(t_fdf *fdf, t_pos **tab, t_cam pos)
 
 	if (!(fdf->img = mlx_new_image(fdf->mlx, fdf->p_win.sizex, fdf->p_win.sizey)))
 		return (0);
-	if (!(fdf->istr = mlx_get_data_addr(fdf->img, &(fdf->bpp), &(fdf->size_line), &(fdf->endian))))
+	if (!(fdf->istr = (int *)mlx_get_data_addr(fdf->img, &(fdf->bpp), &(fdf->size_line), &(fdf->endian))))
 		return (0);
 	mlx_clear_window(fdf->mlx, fdf->win);
 	x = 0;
@@ -83,14 +83,14 @@ void *draw_map(t_fdf *fdf, t_pos **tab, t_cam pos)
 		y = 0;
 		while (tab[x][y].c != -42 && tab[x][y + 1].c != -42)
 		{
-			pos0.x = pos.x + (x - y) * 64;
-			pos0.y = pos.y + (x + y) * 32;
+			pos0.x = (x - y) * 64;
+			pos0.y = (x + y) * 32;
 			pos0.c = tab[x][y].c;
-			pos1.x = pos.x + (x - (y + 1)) * 64;
-			pos1.y = pos.y + (x + (y + 1)) * 32;
+			pos1.x = (x - (y + 1)) * 64;
+			pos1.y = (x + (y + 1)) * 32;
 			pos1.c = tab[x][y + 1].c;
-			pos2.x = pos.x + (x + 1 - y) * 64;
-			pos2.y = pos.y + (x + 1 + y) * 32;
+			pos2.x = (x + 1 - y) * 64;
+			pos2.y = (x + 1 + y) * 32;
 			pos2.c = tab[x + 1][y].c;
 			//fill_pixel(fdf->istr, pos.x + (x - y) * 64, pos.y + (x + y) * 32, 0xFFFFFF);
 			fill_line(fdf, pos0, pos1);
@@ -100,7 +100,8 @@ void *draw_map(t_fdf *fdf, t_pos **tab, t_cam pos)
 		}
 		x++;
 	}
-	mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->img, 0, 0);
+	//mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->img, 0, 0);
+	mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->img, pos.x, pos.y);
 	mlx_destroy_image(fdf->mlx, fdf->img);
 	return (0);
 }

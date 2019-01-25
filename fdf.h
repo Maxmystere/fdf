@@ -19,8 +19,8 @@
 # include <math.h>
 # include "libft/libft.h"
 
-# define WINX 500
-# define WINY 500
+# define WINX 1000
+# define WINY 1000
 
 typedef struct	s_value{
 	int x;
@@ -49,7 +49,7 @@ typedef struct	s_fdf{
 	void	*win;
 	t_pos	**map;
 	void	*img;
-	char	*istr;
+	int		*istr;
 	int		bpp;
 	int		size_line;
 	int		endian;
