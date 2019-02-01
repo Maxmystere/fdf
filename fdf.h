@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:03:51 by magrab            #+#    #+#             */
-/*   Updated: 2019/01/24 18:15:24 by magrab           ###   ########.fr       */
+/*   Updated: 2019/02/01 17:38:52 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,13 @@ void			*draw_iso(t_fdf *fdf, t_pos **tab, t_cam pos);
 t_pos			**calcmap(int setup);
 
 int				close_hook(t_fdf *fdf);
+
+void			clean_lst(t_list *lst);
+
+void			clean_3dtab(char ***splitab);
+
+void			clean_postab(t_pos **tab);
+
+t_pos			**parse_file(int fd);
 
 #endif
