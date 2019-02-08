@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 20:30:03 by magrab            #+#    #+#             */
-/*   Updated: 2019/01/24 17:02:05 by magrab           ###   ########.fr       */
+/*   Updated: 2019/02/08 15:54:02 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	fill_line(t_fdf *fdf, t_pos pos0, t_pos pos1)
 	fill_pixel(fdf, pos0.x, pos0.y, pos0.c);
 	while (pos0.x != pos1.x && pos0.y != pos1.y)
 	{
-		fill_pixel(fdf, pos0.x, pos0.y, pos0.c);
+		fill_pixel(fdf, pos0.x, pos0.y, pos1.c);
 		e2 = err;
 		if (e2 > -d.x)
 		{

@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:03:51 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/08 14:47:52 by tferrieu         ###   ########.fr       */
+/*   Updated: 2019/02/08 14:55:30 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct	s_pos{
 }				t_pos;
 
 typedef struct	s_win{
+	int		nb;
 	int		sx;
 	int		sy;
 	char	*title;

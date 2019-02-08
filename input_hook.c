@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:01:03 by magrab            #+#    #+#             */
-/*   Updated: 2019/01/26 00:21:14 by magrab           ###   ########.fr       */
+/*   Updated: 2019/02/08 15:42:42 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 ** 50 : key under esc
 ** 69 : plus numpad
 ** 78 : minus numpad
+** 84 : num 2
+** 91 : num 8
 ** 123 : left key
 ** 124 : right key
 ** 125 : down key
@@ -25,7 +27,15 @@
 
 t_cam	move_pos(t_fdf *fdf, int key)
 {
-	if (key == 123)
+	if (key == 69)
+		fdf->cam[fdf->cp].z--;
+	else if (key == 78)
+		fdf->cam[fdf->cp].z++;
+	else if (key == 84)
+		fdf->cam[fdf->cp].rz--;
+	else if (key == 91)
+		fdf->cam[fdf->cp].rz++;
+	else if (key == 123)
 		fdf->cam[fdf->cp].x--;
 	else if (key == 124)
 		fdf->cam[fdf->cp].x++;
@@ -40,13 +50,8 @@ int		key_press(int key, t_fdf *fdf)
 {
 	if (key == 53)
 		close_hook(fdf); // Problem when closing from key cause not the first fdf array
-	if (123 <= key && key <= 126)
+	if (key == 69 || key == 78 || (83 <= key && key <= 92) || (123 <= key && key <= 126))
 		draw_iso(fdf, fdf->map, move_pos(fdf, key));
-	else if (key == 69 || key == 78)
-	{
-		key == 78 ? fdf->cam[fdf->cp].z++ : fdf->cam[fdf->cp].z--;
-		draw_iso(fdf, fdf->map, fdf->cam[fdf->cp]);
-	}
 	else
 		ft_printf("win : %s\tkey :%d\n", fdf->p_win.title, key);
 	/*
