@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 19:34:47 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/08 16:46:04 by magrab           ###   ########.fr       */
+/*   Updated: 2019/02/08 18:19:35 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ static int	load_all(void *mlx, t_fdf *fdf, int winnb, char **winname)
 			fdf[v].p_win.sx = WINX;
 			fdf[v].p_win.sy = WINY;
 			fdf[v].p_win.nb = v;
+			fdf[v].cp = 0;
 			basic_cam(&(fdf[v]));
 			fdf[v].p_win.title = winname[v + 1];
 			if (!(fdf[v].win = mlx_new_window(mlx, fdf[v].p_win.sx,

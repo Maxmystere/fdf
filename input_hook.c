@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:01:03 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/08 16:39:30 by magrab           ###   ########.fr       */
+/*   Updated: 2019/02/08 18:11:09 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,27 +49,11 @@ t_cam	move_pos(t_fdf *fdf, int key)
 int		key_press(int key, t_fdf *fdf)
 {
 	if (key == 53)
-		close_hook(fdf); // Problem when closing from key cause not the first fdf array
+		close_hook(fdf);
 	if (key == 69 || key == 78 || (83 <= key && key <= 92) || (123 <= key && key <= 126))
 		draw_iso(fdf, fdf->map, move_pos(fdf, key));
 	else
 		ft_printf("win : %s\tkey :%d\n", fdf->p_win.title, key);
-	/*
-	if (key == 50)
-		drawmap(calcmap(0), dx, dy, spc);
-	if (key == 69)
-		drawmap(calcmap(0), dx, dy, spc += 10);
-	if (key == 78)
-		drawmap(calcmap(0), dx, dy, spc -= 10);
-	if (key == 123)
-		drawmap(calcmap(0), dx -= 1, dy, spc);
-	if (key == 124)
-		drawmap(calcmap(0), dx += 1, dy, spc);
-	if (key == 125)
-		drawmap(calcmap(0), dx, dy += 1, spc);
-	if (key == 126)
-		drawmap(calcmap(0), dx, dy -= 1, spc);
-	*/
 	return (0);
 }
 
