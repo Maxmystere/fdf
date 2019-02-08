@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:03:51 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/01 17:38:52 by tferrieu         ###   ########.fr       */
+/*   Updated: 2019/02/08 14:47:52 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,6 @@ void			clean_3dtab(char ***splitab);
 
 void			clean_postab(t_pos **tab);
 
-t_pos			**parse_file(int fd);
+t_pos			**parse_file(char *filename);
 
 #endif

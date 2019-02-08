@@ -6,7 +6,7 @@
 /*   By: tferrieu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 15:38:19 by tferrieu          #+#    #+#             */
-/*   Updated: 2019/02/01 17:39:36 by tferrieu         ###   ########.fr       */
+/*   Updated: 2019/02/08 14:51:23 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,13 @@
 
 int	main(int ac, char **av)
 {
-	int		fd;
 	int		x;
 	int		y;
 	t_pos	**map;
 
-	if (ac != 2 || !((fd = open(av[1], O_RDONLY | O_DIRECTORY)) == -1 &&
-				(fd = open(av[1], O_RDONLY)) != -1))
+	(void)ac;
+	if (!(map = parse_file(av[1])))
 		return (write(1, "usage: ./a.out source_file\n", 27));
-	map = parse_file(fd);
-	close(fd);
 	if (!map)
 		return (write(1, "Fichier incorrect\n", 18));
 	x = 0;

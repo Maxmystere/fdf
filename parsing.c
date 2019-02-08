@@ -6,11 +6,12 @@
 /*   By: tferrieu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 17:18:53 by tferrieu          #+#    #+#             */
-/*   Updated: 2019/02/01 17:36:02 by tferrieu         ###   ########.fr       */
+/*   Updated: 2019/02/08 14:50:59 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+#include <fcntl.h>
 
 /*
 ** scan_file		: used by parse_file to store all read lines into a t_list.
@@ -140,13 +141,19 @@ static t_pos	**process_values(char ***splitab, int nbl, int len)
 ** returns a map (t_pos **) compatible with fdf rendering utility.
 */
 
-t_pos			**parse_file(int fd)
+t_pos			**parse_file(char *filename)
 {
 	char	***splitab;
 	int		x;
 	int		y;
+	int		fd;
 
-	splitab = split_lines(scan_file(fd));
+	if (!((fd = open(filename, O_RDONLY | O_DIRECTORY)) == -1 &&
+				(fd = open(filename, O_RDONLY)) != -1))
+		return (NULL);
+	if (!(splitab = split_lines(scan_file(fd))))
+		return (NULL);
+	close(fd);
 	y = 0;
 	x = 0;
 	while (splitab[y][x])
