@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 19:44:08 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/08 15:36:13 by magrab           ###   ########.fr       */
+/*   Updated: 2019/02/08 16:46:33 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ void *draw_iso(t_fdf *fdf, t_pos **tab, t_cam pos)
 		y = 0;
 		while (tab[x][y].c != -42 && tab[x][y + 1].c != -42)
 		{
-			pos0.x = (x - y) * pos.rz * -2 + fdf->p_win.sx / 2 + pos.x;
-			pos0.y = (x + y) * pos.rz + 5 + tab[x][y].z * pos.z + pos.y;
+			pos0.x = (x - y) * pos.rz * -2 + pos.x;
+			pos0.y = (x + y) * pos.rz + tab[x][y].z * pos.z + pos.y;
 			pos0.c = tab[x][y].c;
-			pos1.x = (x - (y + 1)) * pos.rz * -2 + fdf->p_win.sx / 2 + pos.x;
-			pos1.y = (x + (y + 1)) * pos.rz + 5 + tab[x][y + 1].z * pos.z + pos.y;
+			pos1.x = (x - (y + 1)) * pos.rz * -2 + pos.x;
+			pos1.y = (x + (y + 1)) * pos.rz + tab[x][y + 1].z * pos.z + pos.y;
 			pos1.c = tab[x][y + 1].c;
-			pos2.x = (x + 1 - y) * pos.rz * -2 + fdf->p_win.sx / 2 + pos.x;
-			pos2.y = (x + 1 + y) * pos.rz + 5 + tab[x + 1][y].z * pos.z + pos.y;
+			pos2.x = (x + 1 - y) * pos.rz * -2 + pos.x;
+			pos2.y = (x + 1 + y) * pos.rz + tab[x + 1][y].z * pos.z + pos.y;
 			pos2.c = tab[x + 1][y].c;
 			fill_line(fdf, pos0, pos1);
 			fill_line(fdf, pos0, pos2);

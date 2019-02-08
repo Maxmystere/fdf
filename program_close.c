@@ -6,30 +6,40 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 20:23:43 by magrab            #+#    #+#             */
-/*   Updated: 2019/01/25 23:52:50 by magrab           ###   ########.fr       */
+/*   Updated: 2019/02/08 16:28:26 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int close_hook(t_fdf *fdf)
-{
-    int     x;
+/*
+** nwin = number of left windows
+** while fdf[x].mlx will check if there is any other windows opened and will
+** close if there isnt any left
+*/
 
-    x = 0;
-    while (x < MAXP)
-    {
-        //mlx_destroy_image(fdf->mlx, fdf->img[x]);
-        x++;
-    }
-    x = 0;
-    while (fdf[x].mlx)
-    {
-        printf("fdf %p\t%s\n", fdf[x].mlx, fdf[x].p_win.title);
-        x++;
-    }
-    //mlx_destroy_window(fdf->mlx, fdf->win);
-    //printf("win %p\n", fdf->win);
-	//exit(0);
-    return (0);
+int		close_hook(t_fdf *fdf)
+{
+	int		x;
+	int		nwin;
+
+	x = 0;
+	while (x < MAXP)
+	{
+		mlx_destroy_image(fdf->mlx, fdf->img[x]);
+		x++;
+	}
+	mlx_destroy_window(fdf->mlx, fdf->win);
+	fdf->win = NULL;
+	nwin = 0;
+	x = -fdf->p_win.nb;
+	while (fdf[x].mlx)
+	{
+		if (fdf[x].win)
+			nwin++;
+		x++;
+	}
+	if (nwin == 0)
+		exit(0);
+	return (0);
 }

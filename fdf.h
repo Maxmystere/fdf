@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:03:51 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/08 14:55:30 by magrab           ###   ########.fr       */
+/*   Updated: 2019/02/08 16:32:34 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void			draw_line(t_fdf *fdf, t_pos pos0, t_pos pos1);
 void			test_draw(t_fdf *fdf, int x, int y);
 
 t_pos			*init_value(int x, int y, int z, int c);
-t_fdf			*init_mlx(int winnb, char **winname, t_pos **map);
+t_fdf			*init_mlx(int winnb, char **winname);
 
 void			*draw_iso(t_fdf *fdf, t_pos **tab, t_cam pos);
 t_pos			**calcmap(int setup);
