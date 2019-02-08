@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 19:44:08 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/08 16:46:33 by magrab           ###   ########.fr       */
+/*   Updated: 2019/02/08 18:48:54 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,9 @@
 ** y = posy from 0
 ** z = addition to y for simili height
 ** rz = distance x*2 and y between each dot
-
 */
 
-void *draw_iso(t_fdf *fdf, t_pos **tab, t_cam pos)
+void	*draw_iso(t_fdf *fdf, t_pos **tab, t_cam pos)
 {
 	int		x;
 	int		y;
@@ -30,8 +29,8 @@ void *draw_iso(t_fdf *fdf, t_pos **tab, t_cam pos)
 	t_pos	pos2;
 
 	fdf->istr = (int *)mlx_get_data_addr(fdf->img[ISO], &(fdf->bpp),
-		&(fdf->s_l), &(fdf->e));
-    ft_bzero(fdf->istr, WINX * WINY * 4);
+			&(fdf->s_l), &(fdf->e));
+	ft_bzero(fdf->istr, fdf->p_win.sx * fdf->p_win.sy * 4);
 	mlx_clear_window(fdf->mlx, fdf->win);
 	x = 0;
 	while (tab[x] && tab[x + 1])
@@ -55,7 +54,6 @@ void *draw_iso(t_fdf *fdf, t_pos **tab, t_cam pos)
 		x++;
 	}
 	mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->img[ISO], 0, 0);
-	//mlx_destroy_image(fdf->mlx, fdf->img[0]);
 	fdf->istr = NULL;
 	return (0);
 }
