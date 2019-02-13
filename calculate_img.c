@@ -37,20 +37,24 @@ static t_cam rotate_cam(t_fdf *fdf, t_cam pos)
 
 static void iso_pos(t_fdf *fdf, t_cam pos, int x, int y)
 {
+	t_pos **tab;
 	t_pos pos0;
 	t_pos pos1;
 	t_pos pos2;
-	t_pos **tab;
+	t_pos add;
 
 	tab = fdf->map;
-	pos0.x = ((x - y) * pos.rx + pos.rx * tab[0][0].x) * (fdf->pr == 3 ? 1 : -1) + pos.x;
-	pos0.y = (x + y) * pos.ry * (fdf->pr == 3 ? 1 : -1) + tab[x][y].z * pos.z + pos.y + pos.ry * tab[0][0].y;
+	add.z = (fdf->pr == 1 ? 1 : -1);
+	add.x = pos.x - (tab[0][0].x / 2 - tab[0][0].y / 2) * pos.rx * add.z;
+	add.y = pos.y - (tab[0][0].x / 2 + tab[0][0].y / 2) * pos.ry * add.z;
+	pos0.x = (x - y) * pos.rx * add.z + add.x;
+	pos0.y = (x + y) * pos.ry * add.z + tab[x][y].z * pos.z + add.y;
 	pos0.c = tab[x][y].c;
-	pos1.x = ((x - (y + 1)) * pos.rx + pos.rx * tab[0][0].x) * (fdf->pr == 3 ? 1 : -1) + pos.x;
-	pos1.y = (x + (y + 1)) * pos.ry * (fdf->pr == 3 ? 1 : -1) + + pos.ry * tab[0][0].y + tab[x][y + 1].z * pos.z + pos.y;
+	pos1.x = (x - (y + 1)) * pos.rx * add.z + add.x;
+	pos1.y = (x + (y + 1)) * pos.ry * add.z + tab[x][y + 1].z * pos.z + add.y;
 	pos1.c = tab[x][y + 1].c;
-	pos2.x = ((x - y + 1) * pos.rx + pos.rx * tab[0][0].x) * (fdf->pr == 3 ? 1 : -1) + pos.x;
-	pos2.y = (x + 1 + y) * pos.ry * (fdf->pr == 3 ? 1 : -1) + pos.ry * tab[0][0].y + tab[x + 1][y].z * pos.z + pos.y;
+	pos2.x = (x - y + 1) * pos.rx * add.z + add.x;
+	pos2.y = (x + 1 + y) * pos.ry * add.z + tab[x + 1][y].z * pos.z + add.y;
 	pos2.c = tab[x + 1][y].c;
 	fill_line(fdf, pos0, pos1);
 	fill_line(fdf, pos0, pos2);
@@ -58,20 +62,23 @@ static void iso_pos(t_fdf *fdf, t_cam pos, int x, int y)
 
 static void iso_pos2(t_fdf *fdf, t_cam pos, int x, int y)
 {
+	t_pos **tab;
 	t_pos pos0;
 	t_pos pos1;
 	t_pos pos2;
-	t_pos **tab;
+	t_pos add;
 
 	tab = fdf->map;
-	pos0.x = ((x + y) * pos.rx - pos.rx * tab[0][0].x - pos.ry * tab[0][0].y / 2) * (fdf->pr == 0 ? 1 : -1) + pos.x + (fdf->pr == 0 ? pos.rx : 0);
-	pos0.y = (x - y) * pos.ry * (fdf->pr == 0 ? 1 : -1) + tab[x][y].z * pos.z + pos.y + pos.ry * tab[0][0].y;
+	add.x = pos.x - (tab[0][0].x / 2 + tab[0][0].y / 2) * pos.rx * (fdf->pr == 0 ? 1 : -1);
+	add.y = pos.y - (tab[0][0].x / 2 - tab[0][0].y / 2) * pos.ry * (fdf->pr == 0 ? 1 : -1);
+	pos0.x = (x + y) * pos.rx * (fdf->pr == 0 ? 1 : -1) + add.x;
+	pos0.y = (x - y) * pos.ry * (fdf->pr == 0 ? 1 : -1) + tab[x][y].z * pos.z + add.y;
 	pos0.c = tab[x][y].c;
-	pos1.x = ((x + (y + 1)) * pos.rx - pos.rx * tab[0][0].x - pos.ry * tab[0][0].y / 2) * (fdf->pr == 0 ? 1 : -1) + pos.x + (fdf->pr == 0 ? pos.rx : 0);
-	pos1.y = (x - (y + 1)) * pos.ry * (fdf->pr == 0 ? 1 : -1) + pos.ry * tab[0][0].y + tab[x][y + 1].z * pos.z + pos.y;
+	pos1.x = (x + (y + 1)) * pos.rx * (fdf->pr == 0 ? 1 : -1) + add.x;
+	pos1.y = (x - (y + 1)) * pos.ry * (fdf->pr == 0 ? 1 : -1) + tab[x][y + 1].z * pos.z + add.y;
 	pos1.c = tab[x][y + 1].c;
-	pos2.x = ((x + y + 1) * pos.rx - pos.rx * tab[0][0].x - pos.ry * tab[0][0].y / 2) * (fdf->pr == 0 ? 1 : -1) + pos.x + (fdf->pr == 0 ? pos.rx : 0);
-	pos2.y = (x + 1 - y) * pos.ry * (fdf->pr == 0 ? 1 : -1) + pos.ry * tab[0][0].y + tab[x + 1][y].z * pos.z + pos.y;
+	pos2.x = (x + y + 1) * pos.rx * (fdf->pr == 0 ? 1 : -1) + add.x;
+	pos2.y = (x + 1 - y) * pos.ry * (fdf->pr == 0 ? 1 : -1) + tab[x + 1][y].z * pos.z + add.y;
 	pos2.c = tab[x + 1][y].c;
 	fill_line(fdf, pos0, pos1);
 	fill_line(fdf, pos0, pos2);

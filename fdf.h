@@ -19,7 +19,7 @@
 # include <math.h>
 # include "libft/libft.h"
 
-# define WINX 1000
+# define WINX 1500
 # define WINY 1000
 
 /*
