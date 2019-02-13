@@ -64,13 +64,13 @@ static void iso_pos2(t_fdf *fdf, t_cam pos, int x, int y)
 	t_pos **tab;
 
 	tab = fdf->map;
-	pos0.x = ((x + y) * pos.rx - pos.rx * tab[0][0].x) * (fdf->pr == 0 ? 1 : -1) + pos.x;
+	pos0.x = ((x + y) * pos.rx - pos.rx * tab[0][0].x - pos.ry * tab[0][0].y / 2) * (fdf->pr == 0 ? 1 : -1) + pos.x + (fdf->pr == 0 ? pos.rx : 0);
 	pos0.y = (x - y) * pos.ry * (fdf->pr == 0 ? 1 : -1) + tab[x][y].z * pos.z + pos.y + pos.ry * tab[0][0].y;
 	pos0.c = tab[x][y].c;
-	pos1.x = ((x + (y + 1)) * pos.rx - pos.rx * tab[0][0].x) * (fdf->pr == 0 ? 1 : -1) + pos.x;
+	pos1.x = ((x + (y + 1)) * pos.rx - pos.rx * tab[0][0].x - pos.ry * tab[0][0].y / 2) * (fdf->pr == 0 ? 1 : -1) + pos.x + (fdf->pr == 0 ? pos.rx : 0);
 	pos1.y = (x - (y + 1)) * pos.ry * (fdf->pr == 0 ? 1 : -1) + pos.ry * tab[0][0].y + tab[x][y + 1].z * pos.z + pos.y;
 	pos1.c = tab[x][y + 1].c;
-	pos2.x = ((x + y + 1) * pos.rx - pos.rx * tab[0][0].x) * (fdf->pr == 0 ? 1 : -1) + pos.x;
+	pos2.x = ((x + y + 1) * pos.rx - pos.rx * tab[0][0].x - pos.ry * tab[0][0].y / 2) * (fdf->pr == 0 ? 1 : -1) + pos.x + (fdf->pr == 0 ? pos.rx : 0);
 	pos2.y = (x + 1 - y) * pos.ry * (fdf->pr == 0 ? 1 : -1) + pos.ry * tab[0][0].y + tab[x + 1][y].z * pos.z + pos.y;
 	pos2.c = tab[x + 1][y].c;
 	fill_line(fdf, pos0, pos1);

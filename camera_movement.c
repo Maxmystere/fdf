@@ -62,7 +62,7 @@ t_fdf   *change_projection(t_fdf *fdf, int key)
     if (key == 18)
     {
         if (fdf->cp == 0)
-            fdf->pr = (fdf->pr < 3 ? fdf->pr + 1 : 0);
+            fdf->pr = (fdf->pr < 3 ? fdf->pr + 2 : 0);
         fdf->cp = 0;
     }
 /*    if (key == 19)

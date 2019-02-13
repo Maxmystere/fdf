@@ -22,6 +22,7 @@ int				main(int ac, char **av)
 	// Remove when implemented (only works with 42.fdf)
 	fdf[0].map[0][0].x = 10;
 	fdf[0].map[0][0].y = 18;
+	fdf[0].map[5][9].c = 0xFF00FF;
 	fdf[0].map[9][18].c = 0xFF00FF;
 	fdf[0].map[10][17].c = 0xFF00FF;
 	// Remove when implemented
