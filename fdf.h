@@ -53,6 +53,7 @@ typedef struct	s_cam{
 }				t_cam;
 
 /*
+** pr : Projection rotation
 ** cp : Current projection
 ** 0 = Iso
 ** 1 = //
@@ -62,6 +63,7 @@ typedef struct	s_fdf{
 	void	*mlx;
 	void	*win;
 	t_pos	**map;
+	int		pr;
 	int		cp;
 	t_cam	cam[MAXP];
 	void	*img[MAXP];
@@ -76,6 +78,9 @@ typedef struct	s_fdf{
 ** void			*g_mlx(int setup);
 ** void			*g_win(t_win *win);
 */
+
+t_cam			move_pos(t_fdf *fdf, int key);
+t_fdf			*change_projection(t_fdf *fdf, int key);
 
 int				key_press(int key, t_fdf *fdf);
 int				key_release(int key, t_fdf *fdf);

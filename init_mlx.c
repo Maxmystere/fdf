@@ -16,9 +16,9 @@ static void	basic_cam(t_fdf *fdf)
 {
 	fdf->cam[0].x = fdf->p_win.sx / 2;
 	fdf->cam[0].y = 5;
-	fdf->cam[0].z = -5;
-	fdf->cam[0].rx = 0;
-	fdf->cam[0].ry = 0;
+	fdf->cam[0].z = -2;
+	fdf->cam[0].rx = 32;
+	fdf->cam[0].ry = 16;
 	fdf->cam[0].rz = 16;
 }
 
@@ -55,7 +55,8 @@ static int	load_all(void *mlx, t_fdf *fdf, int winnb, char **winname)
 			fdf[v].p_win.sx = WINX;
 			fdf[v].p_win.sy = WINY;
 			fdf[v].p_win.nb = v;
-			fdf[v].cp = 0;
+			fdf[v].cp = ISO;
+			fdf[v].pr = 1;
 			basic_cam(&(fdf[v]));
 			fdf[v].p_win.title = winname[v + 1];
 			if (!(fdf[v].win = mlx_new_window(mlx, fdf[v].p_win.sx,

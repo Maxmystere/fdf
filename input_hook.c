@@ -13,6 +13,10 @@
 #include "fdf.h"
 
 /*
+** 18 : 1 key
+** 19 : 2 key
+** 20 : 3 key
+** 21 : 4 key
 ** 53 : esc key
 ** 50 : key under esc
 ** 69 : plus numpad
@@ -25,33 +29,12 @@
 ** 126 = up key
 */
 
-t_cam	move_pos(t_fdf *fdf, int key)
-{
-	if (key == 69)
-		fdf->cam[fdf->cp].z--;
-	else if (key == 78)
-		fdf->cam[fdf->cp].z++;
-	else if (key == 84)
-		fdf->cam[fdf->cp].rz--;
-	else if (key == 91)
-		fdf->cam[fdf->cp].rz++;
-	else if (key == 123)
-		fdf->cam[fdf->cp].x--;
-	else if (key == 124)
-		fdf->cam[fdf->cp].x++;
-	else if (key == 125)
-		fdf->cam[fdf->cp].y++;
-	else if (key == 126)
-		fdf->cam[fdf->cp].y--;
-	return (fdf->cam[fdf->cp]);
-}
-
 int		key_press(int key, t_fdf *fdf)
 {
 	if (key == 53)
 		close_hook(fdf);
-	if (key == 69 || key == 78 || (83 <= key && key <= 92) || (123 <= key && key <= 126))
-		draw_iso(fdf, fdf->map, move_pos(fdf, key));
+	if ((18 <= key && key <= 21) || key == 69 || key == 78 || (83 <= key && key <= 92) || (123 <= key && key <= 126))
+		draw_iso(change_projection(fdf, key), fdf->map, move_pos(fdf, key));
 	else
 		ft_printf("win : %s\tkey :%d\n", fdf->p_win.title, key);
 	return (0);
