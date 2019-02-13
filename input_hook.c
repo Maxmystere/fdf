@@ -17,6 +17,7 @@
 ** 19 : 2 key
 ** 20 : 3 key
 ** 21 : 4 key
+** 46 : M key
 ** 53 : esc key
 ** 50 : key under esc
 ** 69 : plus numpad
@@ -34,7 +35,9 @@ int		key_press(int key, t_fdf *fdf)
 	if (key == 53)
 		close_hook(fdf);
 	change_projection(fdf, key);
-	if (fdf->cp == ISO)
+	if (key == 46)
+		show_menu(fdf);
+	else if (fdf->cp == ISO)
 		draw_tilt(fdf, fdf->map, move_iso(fdf, key));
 	else if (fdf->cp == CARRE)
 		draw_tilt(fdf, fdf->map, move_carre(fdf, key));
@@ -47,7 +50,7 @@ int		key_press(int key, t_fdf *fdf)
 
 int		key_release(int key, t_fdf *fdf)
 {
-	//ft_printf("key release :%d\n", key);
+	ft_printf("key release :%d\n", key);
 	return (0);
 }
 

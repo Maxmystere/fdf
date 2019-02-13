@@ -12,6 +12,18 @@
 
 #include "fdf.h"
 
+void			show_menu(t_fdf *fdf)
+{
+	mlx_string_put(fdf->mlx, fdf->win, 10, 10, 0xFFFFFF, "/  Tuto !                              \\");
+	mlx_string_put(fdf->mlx, fdf->win, 10, 30, 0xFFFFFF, "|  Change Projection : 1, 2, 3         |");
+	mlx_string_put(fdf->mlx, fdf->win, 10, 50, 0xFFFFFF, "|  Press current Projection to rotate  |");
+	mlx_string_put(fdf->mlx, fdf->win, 10, 70, 0xFFFFFF, "|  Move : Arrow Keys                   |");
+	mlx_string_put(fdf->mlx, fdf->win, 10, 90, 0xFFFFFF, "|  Change Altitude : + / -             |");
+	mlx_string_put(fdf->mlx, fdf->win, 10, 110, 0xFFFFFF,"|  Zoom in/out : 8 / 2 (NUMPAD         |");
+	mlx_string_put(fdf->mlx, fdf->win, 10, 130, 0xFFFFFF,"|  Show this Menu : M                  |");
+	mlx_string_put(fdf->mlx, fdf->win, 10, 170, 0xFFFFFF,"|  Quit : Esc                          |");
+}
+
 int				main(int ac, char **av)
 {
 	t_fdf	*fdf;
@@ -29,6 +41,7 @@ int				main(int ac, char **av)
 		if (fdf[x].win)
 		{
 			draw_tilt(&(fdf[x]), fdf[x].map, fdf[x].cam[0]);
+			show_menu(&(fdf[x]));
 			mlx_hook(fdf[x].win, 2, 0, key_press, &(fdf[x]));
 			mlx_hook(fdf[x].win, 3, 0, key_release, &(fdf[x]));
 			mlx_hook(fdf[x].win, 17, 0, close_hook, &(fdf[x]));

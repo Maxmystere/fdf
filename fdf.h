@@ -89,6 +89,8 @@ typedef struct	s_fdf{
 ** void			*g_win(t_win *win);
 */
 
+void			show_menu(t_fdf *fdf);
+
 t_cam			move_iso(t_fdf *fdf, int key);
 t_cam			move_carre(t_fdf *fdf, int key);
 t_fdf			*change_projection(t_fdf *fdf, int key);
