@@ -12,6 +12,10 @@
 
 #include "fdf.h"
 
+/*
+** Put here initial camera value
+*/
+
 static void	basic_cam(t_fdf *fdf)
 {
 	fdf->cam[ISO].x = fdf->p_win.sx / 2;
@@ -27,7 +31,7 @@ static void	basic_cam(t_fdf *fdf)
 	fdf->cam[FLAT].x = fdf->p_win.sx / 2;
 	fdf->cam[FLAT].y = fdf->p_win.sy / 2;
 	fdf->cam[FLAT].z = -2;
-	fdf->cam[FLAT].rx = -5;
+	fdf->cam[FLAT].rx = 10;
 	fdf->cam[FLAT].ry = 20;
 }
 

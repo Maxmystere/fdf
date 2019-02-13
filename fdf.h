@@ -107,6 +107,7 @@ t_pos			*init_value(int x, int y, int z, int c);
 t_fdf			*init_mlx(int winnb, char **winname);
 
 void			*draw_tilt(t_fdf *fdf, t_pos **tab, t_cam pos);
+void			*draw_flat(t_fdf *fdf, t_pos **tab, t_cam pos);
 t_pos			**calcmap(int setup);
 
 int				close_hook(t_fdf *fdf);

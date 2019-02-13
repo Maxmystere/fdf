@@ -39,7 +39,7 @@ int		key_press(int key, t_fdf *fdf)
 	else if (fdf->cp == CARRE)
 		draw_tilt(fdf, fdf->map, move_carre(fdf, key));
 	else if (fdf->cp == FLAT)
-		draw_tilt(fdf, fdf->map, move_carre(fdf, key));
+		draw_flat(fdf, fdf->map, move_carre(fdf, key));
 	else
 		ft_printf("win : %s\tkey :%d\n", fdf->p_win.title, key);
 	return (0);
@@ -53,7 +53,7 @@ int		key_release(int key, t_fdf *fdf)
 
 int		mouse_hook(int button, int x, int y, t_fdf *fdf)
 {
-	//ft_printf("button :%d\tpos: %d\t%d\n", button, x, y);
+	ft_printf("button :%d\tpos: %d\t%d\n", button, x, y);
 	//test_draw(fdf, x, y);
 	return (0);
 }
