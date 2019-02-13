@@ -19,6 +19,12 @@ int				main(int ac, char **av)
 
 	if (!(fdf = init_mlx(ac, av)))
 		return (-1);
+	// Remove when implemented (only works with 42.fdf)
+	fdf[0].map[0][0].x = 10;
+	fdf[0].map[0][0].y = 18;
+	fdf[0].map[9][18].c = 0xFF00FF;
+	fdf[0].map[10][17].c = 0xFF00FF;
+	// Remove when implemented
 	x = -1;
 	while (++x < ac - 1)
 	{
