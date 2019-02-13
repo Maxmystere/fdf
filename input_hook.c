@@ -33,8 +33,13 @@ int		key_press(int key, t_fdf *fdf)
 {
 	if (key == 53)
 		close_hook(fdf);
-	if ((18 <= key && key <= 21) || key == 69 || key == 78 || (83 <= key && key <= 92) || (123 <= key && key <= 126))
-		draw_iso(change_projection(fdf, key), fdf->map, move_pos(fdf, key));
+	change_projection(fdf, key);
+	if (fdf->cp == ISO)
+		draw_tilt(fdf, fdf->map, move_iso(fdf, key));
+	else if (fdf->cp == CARRE)
+		draw_tilt(fdf, fdf->map, move_carre(fdf, key));
+	else if (fdf->cp == FLAT)
+		draw_tilt(fdf, fdf->map, move_carre(fdf, key));
 	else
 		ft_printf("win : %s\tkey :%d\n", fdf->p_win.title, key);
 	return (0);
@@ -42,13 +47,13 @@ int		key_press(int key, t_fdf *fdf)
 
 int		key_release(int key, t_fdf *fdf)
 {
-	ft_printf("key release :%d\n", key);
+	//ft_printf("key release :%d\n", key);
 	return (0);
 }
 
 int		mouse_hook(int button, int x, int y, t_fdf *fdf)
 {
-	ft_printf("button :%d\tpos: %d\t%d\n", button, x, y);
+	//ft_printf("button :%d\tpos: %d\t%d\n", button, x, y);
 	//test_draw(fdf, x, y);
 	return (0);
 }
