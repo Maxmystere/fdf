@@ -31,7 +31,7 @@ int				main(int ac, char **av)
 
 	if (!(fdf = init_mlx(ac, av)))
 		return (-1);
-	// Remove when implemented (only works with 42.fdf)
+	// Remove when implemented (works better with 42.fdf)
 	fdf[0].p_m.x = 10;
 	fdf[0].p_m.y = 18;
 	// Remove when implemented
