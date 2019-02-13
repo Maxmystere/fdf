@@ -14,12 +14,21 @@
 
 static void	basic_cam(t_fdf *fdf)
 {
-	fdf->cam[0].x = fdf->p_win.sx / 2;
-	fdf->cam[0].y = fdf->p_win.sy / 2;
-	fdf->cam[0].z = -2;
-	fdf->cam[0].rx = 32;
-	fdf->cam[0].ry = 16;
-	fdf->cam[0].rz = 16;
+	fdf->cam[ISO].x = fdf->p_win.sx / 2;
+	fdf->cam[ISO].y = fdf->p_win.sy / 2;
+	fdf->cam[ISO].z = -2;
+	fdf->cam[ISO].rx = 32;
+	fdf->cam[ISO].ry = 16;
+	fdf->cam[CARRE].x = fdf->p_win.sx / 2;
+	fdf->cam[CARRE].y = fdf->p_win.sy / 2;
+	fdf->cam[CARRE].z = -2;
+	fdf->cam[CARRE].rx = 25;
+	fdf->cam[CARRE].ry = 25;
+	fdf->cam[FLAT].x = fdf->p_win.sx / 2;
+	fdf->cam[FLAT].y = fdf->p_win.sy / 2;
+	fdf->cam[FLAT].z = -2;
+	fdf->cam[FLAT].rx = -5;
+	fdf->cam[FLAT].ry = 20;
 }
 
 static int	load_imgs(t_fdf *fdf)
