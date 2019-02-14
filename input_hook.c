@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   deal_input.c                                       :+:      :+:    :+:   */
+/*   input_hook.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:01:03 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/14 13:56:41 by magrab           ###   ########.fr       */
+/*   Updated: 2019/02/14 15:23:45 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,24 +32,36 @@
 
 int		key_press(int key, t_fdf *fdf)
 {
+	t_tab pos;
+	int mkey;
+
 	if (key == 53)
 		return (close_hook(fdf));
-	change_projection(fdf, key);
-	if (key == 46)
-		show_menu(fdf);
-	else if (fdf->cp == ISO)
-		draw_tilt(fdf, fdf->map, move_iso(fdf, key));
-	else if (fdf->cp == CARRE)
-		draw_tilt(fdf, fdf->map, move_carre(fdf, key));
-	else if (fdf->cp == FLAT)
-		draw_flat(fdf, fdf->map, move_carre(fdf, key));
-	else
-		ft_printf("win : %s\tkey :%d\n", fdf->p_win.title, key);
+	if (!(ft_nodesearch(fdf->keys, key)))
+		ft_nodepushend(&(fdf->keys), key);
+	pos = fdf->keys;
+	while (pos)
+	{
+		mkey = pos->data;
+		change_projection(fdf, mkey);
+		if (mkey == 46)
+			show_menu(fdf);
+		else if (fdf->cp == ISO)
+			draw_tilt(fdf, fdf->map, move_iso(fdf, mkey));
+		else if (fdf->cp == CARRE)
+			draw_tilt(fdf, fdf->map, move_carre(fdf, mkey));
+		else if (fdf->cp == FLAT)
+			draw_flat(fdf, fdf->map, move_carre(fdf, mkey));
+		else
+			ft_printf("win : %s\tkey :%d\n", fdf->p_win.title, mkey);
+		pos = pos->next;
+	}
 	return (0);
 }
 
 int		key_release(int key, t_fdf *fdf)
 {
+	ft_noderm(ft_nodesearch(fdf->keys, key));
 	ft_printf("key release :%d\n", key);
 	return (0);
 }
