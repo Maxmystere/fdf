@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 19:44:08 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/13 19:20:11 by magrab           ###   ########.fr       */
+/*   Updated: 2019/02/14 14:22:14 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,27 @@ static void		iso_pos2(t_fdf *fdf, t_cam pos, int x, int y)
 	}
 }
 
+void			draw_fleche(t_fdf *fdf, int x, int y)
+{
+	if (fdf->pr == 0)
+	{
+		mlx_string_put(fdf->mlx, fdf->win, x-5, y-10, 0xFFFFFF, "/\\");
+	}
+	else if (fdf->pr == 1)
+	{
+		mlx_string_put(fdf->mlx, fdf->win, x+10, y+2, 0xFFFFFF, ">");
+	}
+	else if (fdf->pr == 2)
+	{
+		mlx_string_put(fdf->mlx, fdf->win, x-5, y+10, 0xFFFFFF, "\\/");
+	}
+	else
+	{
+		mlx_string_put(fdf->mlx, fdf->win, x-10, y+2, 0xFFFFFF, "<");
+	}
+	mlx_string_put(fdf->mlx, fdf->win, x, y, 0xFFFFFF, "o");
+}
+
 void			*draw_tilt(t_fdf *fdf, t_map **tab, t_cam pos)
 {
 	int x;
@@ -111,21 +132,22 @@ void			*draw_tilt(t_fdf *fdf, t_map **tab, t_cam pos)
 			&(fdf->s_l), &(fdf->e));
 	ft_bzero(fdf->istr, fdf->p_win.sx * fdf->p_win.sy * 4);
 	mlx_clear_window(fdf->mlx, fdf->win);
-	x = (fdf->pr == 2 ? 0 : fdf->p_m.x - 1);
+	x = (fdf->pr < 2 ? 0 : fdf->p_m.x - 1);
 	while (x >= 0 && tab[x])
 	{
-		y = 0;
-		while (tab[x][y].c != -42)
+		y = (fdf->pr < 2 ? 0 : fdf->p_m.y - 1);
+		while (y >= 0 && tab[x][y].c != -42)
 		{
 			if (fdf->pr % 2)
 				iso_pos(fdf, pos, x, y);
 			else
 				iso_pos2(fdf, pos, x, y);
-			y++;
+			y += (fdf->pr < 2 ? 1 : -1);
 		}
-		x++;
+		x += (fdf->pr < 2 ? 1 : -1);
 	}
 	mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->img[fdf->cp], 0, 0);
+	draw_fleche(fdf, fdf->p_win.sx - 60, 30);
 	fdf->istr = NULL;
 	return (0);
 }

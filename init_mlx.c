@@ -50,6 +50,17 @@ static int	load_imgs(t_fdf *fdf)
 	return (0);
 }
 
+static void	short_load(void *mlx, t_fdf *fdf, size_t v)
+{
+	fdf[v].mlx = mlx;
+	fdf[v].p_win.sx = WINX;
+	fdf[v].p_win.sy = WINY;
+	fdf[v].p_win.nb = v;
+	fdf[v].cp = ISO;
+	fdf[v].pr = 0;
+	fdf[v].keys = ft_nodenew(-42);
+}
+
 static int	load_all(void *mlx, t_fdf *fdf, int winnb, char **winname)
 {
 	size_t	v;
@@ -64,12 +75,7 @@ static int	load_all(void *mlx, t_fdf *fdf, int winnb, char **winname)
 		}
 		else
 		{
-			fdf[v].mlx = mlx;
-			fdf[v].p_win.sx = WINX;
-			fdf[v].p_win.sy = WINY;
-			fdf[v].p_win.nb = v;
-			fdf[v].cp = ISO;
-			fdf[v].pr = 0;
+			short_load(mlx, fdf, v);
 			basic_cam(&(fdf[v]));
 			fdf[v].p_win.title = winname[v + 1];
 			if (!(fdf[v].win = mlx_new_window(mlx, fdf[v].p_win.sx,
