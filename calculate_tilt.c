@@ -46,7 +46,7 @@ static t_pos	reduceline(t_fdf *fdf, t_cam pos, int function)
 
 static void		iso_pos(t_fdf *fdf, t_cam pos, int x, int y)
 {
-	t_pos **tab;
+	t_map **tab;
 	t_pos pos0;
 	t_pos pos1;
 	t_pos pos2;
@@ -75,7 +75,7 @@ static void		iso_pos(t_fdf *fdf, t_cam pos, int x, int y)
 
 static void		iso_pos2(t_fdf *fdf, t_cam pos, int x, int y)
 {
-	t_pos **tab;
+	t_map **tab;
 	t_pos pos0;
 	t_pos pos1;
 	t_pos pos2;
@@ -102,7 +102,7 @@ static void		iso_pos2(t_fdf *fdf, t_cam pos, int x, int y)
 	}
 }
 
-void			*draw_tilt(t_fdf *fdf, t_pos **tab, t_cam pos)
+void			*draw_tilt(t_fdf *fdf, t_map **tab, t_cam pos)
 {
 	int x;
 	int y;

@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:01:03 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/08 18:11:09 by magrab           ###   ########.fr       */
+/*   Updated: 2019/02/14 13:56:41 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 int		key_press(int key, t_fdf *fdf)
 {
 	if (key == 53)
-		close_hook(fdf);
+		return (close_hook(fdf));
 	change_projection(fdf, key);
 	if (key == 46)
 		show_menu(fdf);

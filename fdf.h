@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:03:51 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/14 13:54:05 by magrab           ###   ########.fr       */
+/*   Updated: 2019/02/14 13:57:44 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ typedef struct	s_dot{
 	int y;
 }				t_dot;
 
-typedef struct	s_val{
+typedef struct	s_map{
 	int	z;
 	int	c;
-}				t_val;
+}				t_map;
 
 typedef struct	s_pos{
 	int x;
@@ -76,7 +76,7 @@ typedef struct	s_cam{
 typedef struct	s_fdf{
 	void	*mlx;
 	void	*win;
-	t_val	**map;
+	t_map	**map;
 	t_dot	p_m;
 	int		pr;
 	int		cp;
@@ -113,9 +113,8 @@ void			test_draw(t_fdf *fdf, int x, int y);
 t_pos			*init_value(int x, int y, int z, int c);
 t_fdf			*init_mlx(int winnb, char **winname);
 
-void			*draw_tilt(t_fdf *fdf, t_pos **tab, t_cam pos);
-void			*draw_flat(t_fdf *fdf, t_pos **tab, t_cam pos);
-t_pos			**calcmap(int setup);
+void			*draw_tilt(t_fdf *fdf, t_map **tab, t_cam pos);
+void			*draw_flat(t_fdf *fdf, t_map **tab, t_cam pos);
 
 int				close_hook(t_fdf *fdf);
 
@@ -123,8 +122,8 @@ void			clean_lst(t_list *lst);
 
 void			clean_3dtab(char ***splitab);
 
-void			clean_postab(t_pos **tab);
+void			clean_postab(t_map **tab);
 
-t_val			**parse_file(char *filename, t_fdf *fdf);
+t_map			**parse_file(char *filename, t_fdf *fdf);
 
 #endif

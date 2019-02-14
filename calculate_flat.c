@@ -14,7 +14,7 @@
 
 void            drawer(t_fdf *fdf, t_cam pos, int x, int y)
 {
-    t_pos **tab;
+    t_map **tab;
 	t_pos pos0;
 	t_pos pos1;
 	t_pos pos2;
@@ -44,7 +44,7 @@ void            drawer(t_fdf *fdf, t_cam pos, int x, int y)
 	}
 }
 
-void			*draw_flat(t_fdf *fdf, t_pos **tab, t_cam pos)
+void			*draw_flat(t_fdf *fdf, t_map **tab, t_cam pos)
 {
 	int x;
 	int y;
