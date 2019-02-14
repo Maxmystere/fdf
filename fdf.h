@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:03:51 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/14 13:57:44 by magrab           ###   ########.fr       */
+/*   Updated: 2019/02/14 14:53:32 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ typedef struct	s_fdf{
 	void	*win;
 	t_map	**map;
 	t_dot	p_m;
+	t_tab	keys;
 	int		pr;
 	int		cp;
 	t_cam	cam[MAXP];
