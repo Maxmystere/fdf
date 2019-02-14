@@ -6,7 +6,7 @@
 /*   By: tferrieu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/29 18:02:23 by tferrieu          #+#    #+#             */
-/*   Updated: 2019/02/01 17:36:12 by tferrieu         ###   ########.fr       */
+/*   Updated: 2019/02/14 14:06:52 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	clean_3dtab(char ***tab)
 ** of a fdf file.
 */
 
-void	clean_postab(t_pos **tab)
+void	clean_postab(t_map **tab)
 {
 	int i;
 

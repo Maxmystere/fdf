@@ -6,7 +6,7 @@
 /*   By: tferrieu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 17:18:53 by tferrieu          #+#    #+#             */
-/*   Updated: 2019/02/08 14:50:59 by tferrieu         ###   ########.fr       */
+/*   Updated: 2019/02/14 14:06:02 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ static char		***split_lines(t_list *list)
 ** indicating the current line being analyzed (y).
 */
 
-static t_pos	*process_line(char **line, int len, int y)
+static t_map	*process_line(char **line, int len, int y)
 {
 	int		x;
 	t_pos	*vline;
@@ -94,8 +94,6 @@ static t_pos	*process_line(char **line, int len, int y)
 	x = 0;
 	while (x < len && line[x])
 	{
-		vline[x].x = x;
-		vline[x].y = y;
 		vline[x].z = ft_atoi(line[x]);
 		vline[x].c = 0xffffff;
 		if (ft_strchr(line[x], ','))
@@ -113,9 +111,9 @@ static t_pos	*process_line(char **line, int len, int y)
 ** into a map (t_pos **).
 */
 
-static t_pos	**process_values(char ***splitab, int nbl, int len)
+static t_map	**process_values(char ***splitab, int nbl, int len)
 {
-	t_pos	**tab_val;
+	t_map	**tab_val;
 	int		i;
 
 	i = 0;
@@ -141,11 +139,11 @@ static t_pos	**process_values(char ***splitab, int nbl, int len)
 ** returns a map (t_pos **) compatible with fdf rendering utility.
 */
 
-t_pos			**parse_file(char *filename)
+t_pos			**parse_file(char *filename, t_fdf *fdf)
 {
 	char	***splitab;
 	int		x;
-	int		y;
+	int		y
 	int		fd;
 
 	if (!((fd = open(filename, O_RDONLY | O_DIRECTORY)) == -1 &&
@@ -160,5 +158,7 @@ t_pos			**parse_file(char *filename)
 		x++;
 	while (splitab[y])
 		y++;
+	fdf->p_m.x = x;
+	fdf->p_m.y = y;
 	return (process_values(splitab, y, x));
 }
