@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 19:34:47 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/08 18:19:35 by magrab           ###   ########.fr       */
+/*   Updated: 2019/02/14 13:53:27 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static int	load_all(void *mlx, t_fdf *fdf, int winnb, char **winname)
 	v = -1;
 	while (++v < winnb - 1)
 	{
-		if (!(fdf[v].map = parse_file(winname[v + 1])))
+		if (!(fdf[v].map = parse_file(winname[v + 1], &(fdf[v]))))
 		{
 			ft_printf("Could not open file %s\n", winname[v + 1]);
 			fdf[v].win = NULL;

@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:03:51 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/08 16:32:34 by magrab           ###   ########.fr       */
+/*   Updated: 2019/02/14 13:54:05 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@ typedef struct	s_dot{
 	int x;
 	int y;
 }				t_dot;
+
+typedef struct	s_val{
+	int	z;
+	int	c;
+}				t_val;
 
 typedef struct	s_pos{
 	int x;
@@ -71,7 +76,7 @@ typedef struct	s_cam{
 typedef struct	s_fdf{
 	void	*mlx;
 	void	*win;
-	t_pos	**map;
+	t_val	**map;
 	t_dot	p_m;
 	int		pr;
 	int		cp;
@@ -120,6 +125,6 @@ void			clean_3dtab(char ***splitab);
 
 void			clean_postab(t_pos **tab);
 
-t_pos			**parse_file(char *filename);
+t_val			**parse_file(char *filename, t_fdf *fdf);
 
 #endif
