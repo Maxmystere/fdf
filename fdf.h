@@ -105,6 +105,7 @@ int				key_press(int key, t_fdf *fdf);
 int				key_release(int key, t_fdf *fdf);
 int				mouse_hook(int button, int x, int y, t_fdf *fdf);
 int				mouse_move(int x, int y, t_fdf *fdf);
+int				loop_hook(t_fdf *fdf);
 
 void			fill_pixel(t_fdf *fdf, int x, int y, int color);
 void			fill_line(t_fdf *fdf, t_pos pos0, t_pos pos1);

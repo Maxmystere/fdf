@@ -44,6 +44,7 @@ int				main(int ac, char **av)
 			mlx_mouse_hook(fdf[x].win, mouse_hook, &(fdf[x]));
 		}
 	}
+	mlx_loop_hook(fdf->mlx, loop_hook, fdf);
 	if (ac > 1)
 		mlx_loop(fdf[0].mlx);
 	return (0);

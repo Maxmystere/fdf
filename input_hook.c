@@ -77,3 +77,20 @@ int		mouse_move(int x, int y, t_fdf *fdf)
 {
 	return (0);
 }
+
+int		loop_hook(t_fdf *fdf)
+{
+	int		x;
+
+	x = 0;
+	while (fdf[x].mlx)
+	{
+		if (fdf[x].win)
+		{
+			printf("win : %s\n", fdf[x].p_win.title);
+		}
+		x++;
+	}
+
+	return (0);
+}

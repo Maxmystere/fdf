@@ -102,25 +102,23 @@ static void		iso_pos2(t_fdf *fdf, t_cam pos, int x, int y)
 	}
 }
 
-void			draw_fleche(t_fdf *fdf, int x, int y)
+void			draw_text(t_fdf *fdf, int x, int y)
 {
-	if (fdf->pr == 0)
+	char *tmp;
+
+	if (fdf->pr % 2 == 0)
 	{
-		mlx_string_put(fdf->mlx, fdf->win, x-5, y-10, 0xFFFFFF, "/\\");
+		mlx_string_put(fdf->mlx, fdf->win, x-5, y-10, (fdf->pr == 0 ? 0xF44141 : 0xFFFFFF), "/\\");
+		mlx_string_put(fdf->mlx, fdf->win, x-5, y+10, (fdf->pr == 0 ? 0xFFFFFF : 0xF44141), "\\/");
 	}
-	else if (fdf->pr == 1)
+	else if (fdf->pr % 2)
 	{
-		mlx_string_put(fdf->mlx, fdf->win, x+10, y+2, 0xFFFFFF, ">");
-	}
-	else if (fdf->pr == 2)
-	{
-		mlx_string_put(fdf->mlx, fdf->win, x-5, y+10, 0xFFFFFF, "\\/");
-	}
-	else
-	{
-		mlx_string_put(fdf->mlx, fdf->win, x-10, y+2, 0xFFFFFF, "<");
+		mlx_string_put(fdf->mlx, fdf->win, x+10, y+2, (fdf->pr == 1 ? 0xF44141 : 0xFFFFFF), ">");
+		mlx_string_put(fdf->mlx, fdf->win, x-10, y+2, (fdf->pr == 1 ? 0xFFFFFF : 0xF44141), "<");
 	}
 	mlx_string_put(fdf->mlx, fdf->win, x, y, 0xFFFFFF, "o");
+	mlx_string_put(fdf->mlx, fdf->win, x / 2, y, 0xFFFFFF, tmp = ft_itoa(fdf->p_m.x));
+	free(tmp);
 }
 
 void			*draw_tilt(t_fdf *fdf, t_map **tab, t_cam pos)
@@ -147,7 +145,7 @@ void			*draw_tilt(t_fdf *fdf, t_map **tab, t_cam pos)
 		x += (fdf->pr < 2 ? 1 : -1);
 	}
 	mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->img[fdf->cp], 0, 0);
-	draw_fleche(fdf, fdf->p_win.sx - 60, 30);
+	draw_text(fdf, fdf->p_win.sx - 60, 30);
 	fdf->istr = NULL;
 	return (0);
 }
