@@ -80,16 +80,16 @@ static char		***split_lines(t_list *list)
 /*
 ** process_line		: used by process_values to check if a given line resulting
 ** from split_lines is valid. If so, the values are processed and stored into a
-** map (t_pos **). Requires a specified line length (len) as well as an int
+** map (t_map **). Requires a specified line length (len) as well as an int
 ** indicating the current line being analyzed (y).
 */
 
 static t_map	*process_line(char **line, int len, int y)
 {
 	int		x;
-	t_pos	*vline;
+	t_map	*vline;
 
-	if (!(vline = (t_pos *)malloc(sizeof(t_pos) * (len + 1))))
+	if (!(vline = (t_map *)malloc(sizeof(t_map) * (len + 1))))
 		return (NULL);
 	x = 0;
 	while (x < len && line[x])
@@ -108,7 +108,7 @@ static t_map	*process_line(char **line, int len, int y)
 
 /*
 ** process_values	: used by parse_file to process the tab from split_lines
-** into a map (t_pos **).
+** into a map (t_map **).
 */
 
 static t_map	**process_values(char ***splitab, int nbl, int len)
@@ -117,7 +117,7 @@ static t_map	**process_values(char ***splitab, int nbl, int len)
 	int		i;
 
 	i = 0;
-	tab_val = (t_pos **)malloc(sizeof(t_pos) * (nbl + 1));
+	tab_val = (t_map **)malloc(sizeof(t_map) * (nbl + 1));
 	tab_val[nbl] = NULL;
 	while (i < nbl)
 	{
@@ -136,14 +136,14 @@ static t_map	**process_values(char ***splitab, int nbl, int len)
 
 /*
 ** parse_file		: parse the file indicated by the given file descriptor, and
-** returns a map (t_pos **) compatible with fdf rendering utility.
+** returns a map (t_map **) compatible with fdf rendering utility.
 */
 
-t_pos			**parse_file(char *filename, t_fdf *fdf)
+t_map			**parse_file(char *filename, t_fdf *fdf)
 {
 	char	***splitab;
 	int		x;
-	int		y
+	int		y;
 	int		fd;
 
 	if (!((fd = open(filename, O_RDONLY | O_DIRECTORY)) == -1 &&

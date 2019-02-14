@@ -111,8 +111,8 @@ void			*draw_tilt(t_fdf *fdf, t_map **tab, t_cam pos)
 			&(fdf->s_l), &(fdf->e));
 	ft_bzero(fdf->istr, fdf->p_win.sx * fdf->p_win.sy * 4);
 	mlx_clear_window(fdf->mlx, fdf->win);
-	x = 0;
-	while (tab[x])
+	x = (fdf->pr == 2 ? 0 : fdf->p_m.x - 1);
+	while (x >= 0 && tab[x])
 	{
 		y = 0;
 		while (tab[x][y].c != -42)

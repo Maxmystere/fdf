@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 16:53:32 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/08 18:11:14 by magrab           ###   ########.fr       */
+/*   Updated: 2019/02/14 14:15:46 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,6 @@ int				main(int ac, char **av)
 
 	if (!(fdf = init_mlx(ac, av)))
 		return (-1);
-	// Remove when implemented (works better with 42.fdf)
-	fdf[0].p_m.x = 10;
-	fdf[0].p_m.y = 18;
-	// Remove when implemented
 	x = -1;
 	while (++x < ac - 1)
 	{
