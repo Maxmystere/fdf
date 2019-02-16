@@ -39,13 +39,13 @@ t_cam	move_iso(t_fdf *fdf, int key)
 		fdf->cam[fdf->cp].z++;
 	else if (key == 84)
 	{
-		fdf->cam[fdf->cp].rx -= 2;
-		fdf->cam[fdf->cp].ry--;
+		fdf->cam[fdf->cp].rx -= ZOOMSPEED * 2;
+		fdf->cam[fdf->cp].ry -= ZOOMSPEED;
 	}
 	else if (key == 91)
 	{
-		fdf->cam[fdf->cp].rx += 2;
-		fdf->cam[fdf->cp].ry++;
+		fdf->cam[fdf->cp].rx += ZOOMSPEED * 2;
+		fdf->cam[fdf->cp].ry += ZOOMSPEED;
 	}
 	else if (key == 123)
 		fdf->cam[fdf->cp].x -= CAMSPEED;
@@ -68,13 +68,13 @@ t_cam	move_carre(t_fdf *fdf, int key)
 		fdf->cam[fdf->cp].z++;
 	else if (key == 84)
 	{
-		fdf->cam[fdf->cp].rx--;
-		fdf->cam[fdf->cp].ry--;
+		fdf->cam[fdf->cp].rx -= ZOOMSPEED;
+		fdf->cam[fdf->cp].ry -= ZOOMSPEED;
 	}
 	else if (key == 91)
 	{
-		fdf->cam[fdf->cp].rx++;
-		fdf->cam[fdf->cp].ry++;
+		fdf->cam[fdf->cp].rx += ZOOMSPEED;
+		fdf->cam[fdf->cp].ry += ZOOMSPEED;
 	}
 	else if (key == 123)
 		fdf->cam[fdf->cp].x -= CAMSPEED;
@@ -97,13 +97,13 @@ t_cam	move_flat(t_fdf *fdf, int key)
 		fdf->cam[fdf->cp].z++;
 	else if (key == 84)
 	{
-		fdf->cam[fdf->cp].rx--;
-		fdf->cam[fdf->cp].ry = -2;
+		fdf->cam[fdf->cp].rx -= ZOOMSPEED;
+		fdf->cam[fdf->cp].ry -= ZOOMSPEED * 2;
 	}
 	else if (key == 91)
 	{
-		fdf->cam[fdf->cp].rx++;
-		fdf->cam[fdf->cp].ry = +2;
+		fdf->cam[fdf->cp].rx += ZOOMSPEED;
+		fdf->cam[fdf->cp].ry += ZOOMSPEED * 2;
 	}
 	else if (key == 123)
 		fdf->cam[fdf->cp].x -= CAMSPEED;
@@ -132,19 +132,19 @@ t_fdf	*change_projection(t_fdf *fdf, int key)
 			fdf->pr = (fdf->pr + 1 <= 3 ? fdf->pr + 1 : 0);
 		fdf->cp = 0;
 	}
-	if (key == 19)
+	else if (key == 19)
 	{
 		if (fdf->cp == 1)
 			fdf->pr = (fdf->pr + 1 <= 3 ? fdf->pr + 1 : 0);
 		fdf->cp = 1;
 	}
-	if (key == 20)
+	else if (key == 20)
 	{
 		if (fdf->cp == 2)
 			fdf->pr = (fdf->pr + 1 <= 1 ? fdf->pr + 1 : 0);
 		fdf->cp = 2;
 	}
-	if (key == 21)
+	else if (key == 21)
 	{
 		if (fdf->cp == 3)
 			fdf->pr = (fdf->pr + 1 <= 3 ? fdf->pr + 1 : 0);

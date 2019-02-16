@@ -22,6 +22,7 @@
 # define WINX 1500
 # define WINY 1000
 # define CAMSPEED 3
+# define ZOOMSPEED 1
 
 /*
 ** Maximum number of projections

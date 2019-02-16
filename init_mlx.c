@@ -31,8 +31,8 @@ static void	basic_cam(t_fdf *fdf)
 	fdf->cam[FLAT].x = fdf->p_win.sx / 2;
 	fdf->cam[FLAT].y = fdf->p_win.sy / 2;
 	fdf->cam[FLAT].z = -2;
-	fdf->cam[FLAT].rx = 10;
-	fdf->cam[FLAT].ry = 20;
+	fdf->cam[FLAT].rx = 20;
+	fdf->cam[FLAT].ry = 40;
 }
 
 static int	load_imgs(t_fdf *fdf)
