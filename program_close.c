@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 20:23:43 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/08 16:28:26 by magrab           ###   ########.fr       */
+/*   Updated: 2019/02/16 18:25:28 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int		close_hook(t_fdf *fdf)
 		x++;
 	}
 	mlx_destroy_window(fdf->mlx, fdf->win);
+	clean_postab(fdf->map);
+	fdf->map = NULL;
 	fdf->win = NULL;
 	nwin = 0;
 	x = -fdf->p_win.nb;
