@@ -14,8 +14,8 @@
 
 static void	init_add(t_pos *add, t_cam pos, t_fdf *fdf)
 {
-	add->x = pos.x - (fdf->p_m.x / 2 * pos.rx + fdf->p_m.y / 2 * pos.ry);
-	add->y = pos.y - (fdf->p_m.x / 2 * pos.rx);
+	add->x = pos.x - (fdf->p_m.y / 2 * pos.rx + fdf->p_m.x / 2 * pos.ry);
+	add->y = pos.y - (fdf->p_m.y / 2 * pos.rx);
 	add->z = 1;
 	add->c = 1;
 }
