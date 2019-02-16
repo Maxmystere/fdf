@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/16 16:52:04 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/16 16:52:05 by magrab           ###   ########.fr       */
+/*   Updated: 2019/02/16 17:49:24 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ static void		lil_loop(t_fdf *fdf, int mkey, int willshowmenu)
 int				loop_hook(t_fdf *fdf)
 {
 	int x;
-	int mkey;
 
 	x = 0;
 	while (fdf[x].mlx)

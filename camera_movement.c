@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 14:00:19 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/13 14:00:21 by magrab           ###   ########.fr       */
+/*   Updated: 2019/02/16 17:58:28 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,13 +144,5 @@ t_fdf	*change_projection(t_fdf *fdf, int key)
 			fdf->pr = (fdf->pr + 1 <= 0 ? fdf->pr + 1 : 0);
 		fdf->cp = 2;
 	}
-	/*
-	else if (key == 21)
-	{
-		if (fdf->cp == 3)
-			fdf->pr = (fdf->pr + 1 <= 3 ? fdf->pr + 1 : 0);
-		fdf->cp = 3;
-	}
-	*/
 	return (fdf);
 }

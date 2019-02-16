@@ -6,7 +6,7 @@
 /*   By: tferrieu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 17:18:53 by tferrieu          #+#    #+#             */
-/*   Updated: 2019/02/14 14:06:02 by tferrieu         ###   ########.fr       */
+/*   Updated: 2019/02/16 17:50:12 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ static char		***split_lines(t_list *list)
 ** indicating the current line being analyzed (y).
 */
 
-static t_map	*process_line(char **line, int len, int y)
+static t_map	*process_line(char **line, int len)
 {
 	int		x;
 	t_map	*vline;
@@ -121,7 +121,7 @@ static t_map	**process_values(char ***splitab, int nbl, int len)
 	tab_val[nbl] = NULL;
 	while (i < nbl)
 	{
-		if (!(tab_val[i] = process_line(splitab[i], len, i)))
+		if (!(tab_val[i] = process_line(splitab[i], len)))
 		{
 			clean_3dtab(splitab + i);
 			clean_postab(tab_val);

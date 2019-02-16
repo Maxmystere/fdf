@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:01:03 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/16 16:43:56 by tferrieu         ###   ########.fr       */
+/*   Updated: 2019/02/16 17:48:56 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,6 @@
 
 int	key_press(int key, t_fdf *fdf)
 {
-	t_tab	pos;
-	int		mkey;
-
 	if (key == 53)
 		return (close_hook(fdf));
 	ft_nodeadd_int(&(fdf->keys), key);
@@ -50,11 +47,15 @@ int	key_release(int key, t_fdf *fdf)
 
 int	mouse_hook(int button, int x, int y, t_fdf *fdf)
 {
+	(void)fdf;
 	ft_printf("button :%d\tpos: %d\t%d\n", button, x, y);
 	return (0);
 }
 
 int	mouse_move(int x, int y, t_fdf *fdf)
 {
+	(void)x;
+	(void)y;
+	(void)fdf;
 	return (0);
 }
