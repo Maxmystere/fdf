@@ -32,6 +32,7 @@
 
 int	key_press(int key, t_fdf *fdf)
 {
+	fdf->mouse.x = 0;
 	if (key == 53)
 		return (close_hook(fdf));
 	if (key != 46 || !ft_nodesearch_int(fdf->keys, 46))
@@ -49,17 +50,31 @@ int	key_release(int key, t_fdf *fdf)
 	return (0);
 }
 
-int	mouse_hook(int button, int x, int y, t_fdf *fdf)
+int	mouse_press(int button, int x, int y, t_fdf *fdf)
 {
-	(void)fdf;
+	if (x > 0 && y > 0)
+	{
+		fdf->mouse.x = fdf->cam[fdf->cp].x - x;
+		fdf->mouse.y = fdf->cam[fdf->cp].y - y;
+	}
+	ft_printf("button :%d\tpos: %d\t%d\n", button, x, y);
+	return (0);
+}
+
+int	mouse_release(int button, int x, int y, t_fdf *fdf)
+{
+	fdf->mouse.x = 0;
+	fdf->mouse.y = 0;
 	ft_printf("button :%d\tpos: %d\t%d\n", button, x, y);
 	return (0);
 }
 
 int	mouse_move(int x, int y, t_fdf *fdf)
 {
-	(void)x;
-	(void)y;
-	(void)fdf;
+	if (fdf->mouse.x)
+	{
+		fdf->cam[fdf->cp].x = fdf->mouse.x + x;
+		fdf->cam[fdf->cp].y = fdf->mouse.y + y;
+	}
 	return (0);
 }

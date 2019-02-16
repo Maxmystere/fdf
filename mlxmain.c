@@ -33,8 +33,25 @@ static void		draw_boussole(t_fdf *fdf, int x, int y)
 
 void			draw_text(t_fdf *fdf, int x, int y)
 {
+	char *tmp;
+	char *nbstr;
+
 	draw_boussole(fdf, x, y);
-	mlx_string_put(fdf->mlx, fdf->win, 50, y, 0xFFFFFF, fdf->winstr);
+	nbstr = ft_itoa(fdf->p_m.x);
+	tmp = ft_strjoin("X : ", nbstr);
+	mlx_string_put(fdf->mlx, fdf->win, 50, y, 0xf44336, tmp);
+	free(nbstr);
+	free(tmp);
+	nbstr = ft_itoa(fdf->p_m.y);
+	tmp = ft_strjoin("Y : ", nbstr);
+	mlx_string_put(fdf->mlx, fdf->win, 50, y + 25, 0xf44336, tmp);
+	free(nbstr);
+	free(tmp);
+	nbstr = ft_itoa(-fdf->cam[fdf->cp].z);
+	tmp = ft_strjoin("Z : ", nbstr);
+	mlx_string_put(fdf->mlx, fdf->win, 50, y + 50, 0xf44336, tmp);
+	free(nbstr);
+	free(tmp);
 }
 
 void			show_menu(t_fdf *fdf)
@@ -42,10 +59,12 @@ void			show_menu(t_fdf *fdf)
 	int y;
 
 	y = fdf->p_win.sy - 60;
-	mlx_string_put(fdf->mlx, fdf->win, 15, y - 213, 0xFFFFFF,
+	mlx_string_put(fdf->mlx, fdf->win, 15, y - 213, 0x7f8c8d,
 								"_______________________________________");
-	mlx_string_put(fdf->mlx, fdf->win, 15, y - 190, 0xFFFFFF,
-								"   Tuto !");
+	mlx_string_put(fdf->mlx, fdf->win, 10, y - 192, 0xe74c3c,
+								"   Tutorial");
+	mlx_string_put(fdf->mlx, fdf->win, 15, y - 185, 0x7f8c8d,
+								"_______________________________________");
 	mlx_string_put(fdf->mlx, fdf->win, 10, y - 160, 0xFFFFFF,
 								"   Change Projection : 1, 2, 3");
 	mlx_string_put(fdf->mlx, fdf->win, 10, y - 140, 0xFFFFFF,
@@ -58,13 +77,13 @@ void			show_menu(t_fdf *fdf)
 								"   Zoom in/out : 8 / 2 (NUMPAD)");
 	mlx_string_put(fdf->mlx, fdf->win, 10, y - 60, 0xFFFFFF,
 								"   Show this Menu : M");
-	mlx_string_put(fdf->mlx, fdf->win, 10, y - 20, 0xFFFFFF,
+	mlx_string_put(fdf->mlx, fdf->win, 10, y - 20, 0xbdc3c7,
 								"   Quit : Esc");
-	mlx_string_put(fdf->mlx, fdf->win, 15, y - 8, 0xFFFFFF,
+	mlx_string_put(fdf->mlx, fdf->win, 15, y - 8, 0x7f8c8d,
 								"_______________________________________");
 	while ((y -= 17) > fdf->p_win.sy - 265)
 	{
-		mlx_string_put(fdf->mlx, fdf->win, 10, y + 5, 0xFFFFFF,
+		mlx_string_put(fdf->mlx, fdf->win, 10, y + 5, 0x7f8c8d,
 								"|                                      |");
 	}
 }
@@ -86,8 +105,10 @@ int				main(int ac, char **av)
 			show_menu(&(fdf[x]));
 			mlx_hook(fdf[x].win, 2, 0, key_press, &(fdf[x]));
 			mlx_hook(fdf[x].win, 3, 0, key_release, &(fdf[x]));
+			mlx_hook(fdf[x].win, 4, 0, mouse_press, &(fdf[x]));
+			mlx_hook(fdf[x].win, 5, 0, mouse_release, &(fdf[x]));
+			mlx_hook(fdf[x].win, 6, 0, mouse_move, &(fdf[x]));
 			mlx_hook(fdf[x].win, 17, 0, close_hook, &(fdf[x]));
-			mlx_mouse_hook(fdf[x].win, mouse_hook, &(fdf[x]));
 		}
 	}
 	mlx_loop_hook(fdf->mlx, loop_hook, fdf);

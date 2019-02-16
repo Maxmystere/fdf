@@ -67,7 +67,7 @@ int				loop_hook(t_fdf *fdf)
 	{
 		if (fdf[x].win)
 		{
-			if (fdf[x].keys)
+			if (fdf[x].keys || fdf[x].mouse.x)
 			{
 				lil_loop(&(fdf[x]), 0, 0);
 			}

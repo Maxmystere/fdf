@@ -52,10 +52,6 @@ static int	load_imgs(t_fdf *fdf)
 
 static void	short_load(void *mlx, t_fdf *fdf, size_t v)
 {
-	char *tmp;
-	char *tmp2;
-	char *nbstr;
-
 	fdf[v].mlx = mlx;
 	fdf[v].p_win.sx = WINX;
 	fdf[v].p_win.sy = WINY;
@@ -63,13 +59,6 @@ static void	short_load(void *mlx, t_fdf *fdf, size_t v)
 	fdf[v].cp = ISO;
 	fdf[v].pr = 0;
 	fdf[v].keys = NULL;
-	nbstr = ft_itoa(fdf->p_m.x);
-	tmp = ft_strjoin(" x : ", nbstr);
-	free(nbstr);
-	nbstr = ft_itoa(fdf->p_m.y);
-	tmp2 = ft_strjoin("   |   y : ", nbstr);
-	free(nbstr);
-	fdf[v].winstr = ft_strjoin_free(&tmp, &tmp2, 3);
 }
 
 static int	load_all(void *mlx, t_fdf *fdf, int winnb, char **winname)

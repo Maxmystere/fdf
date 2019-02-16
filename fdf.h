@@ -19,6 +19,10 @@
 # include <math.h>
 # include "libft/libft.h"
 
+/*
+** Bonus include
+*/
+
 # define WINX 1500
 # define WINY 1000
 # define CAMSPEED 3
@@ -80,10 +84,10 @@ typedef struct	s_fdf{
 	void	*win;
 	t_map	**map;
 	t_dot	p_m;
-	char	*winstr;
 	t_tab	keys;
 	int		pr;
 	int		cp;
+	t_dot	mouse;
 	t_cam	cam[MAXP];
 	void	*img[MAXP];
 	int		*istr;
@@ -107,7 +111,8 @@ t_fdf			*change_projection(t_fdf *fdf, int key);
 
 int				key_press(int key, t_fdf *fdf);
 int				key_release(int key, t_fdf *fdf);
-int				mouse_hook(int button, int x, int y, t_fdf *fdf);
+int				mouse_press(int button, int x, int y, t_fdf *fdf);
+int				mouse_release(int button, int x, int y, t_fdf *fdf);
 int				mouse_move(int x, int y, t_fdf *fdf);
 int				loop_hook(t_fdf *fdf);
 
