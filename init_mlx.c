@@ -68,6 +68,7 @@ static int	load_all(void *mlx, t_fdf *fdf, int winnb, char **winname)
 
 	v = -1;
 	winopened = 0;
+	fdf->mlx = mlx;
 	while (++v < winnb - 1)
 	{
 		if (!(fdf[v].map = parse_file(winname[v + 1], &(fdf[v]))))
@@ -102,6 +103,7 @@ t_fdf		*init_mlx(int winnb, char **winname)
 	fdf[winnb - 1].mlx = NULL;
 	if (!(mlx = mlx_init()))
 		return (NULL);
-	ft_printf("Win loaded : %d\n", load_all(mlx, fdf, winnb, winname));
+	if (!load_all(mlx, fdf, winnb, winname))
+		exit(0);
 	return (fdf);
 }

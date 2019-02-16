@@ -30,10 +30,9 @@
 ** 126 = up key
 */
 
-static void		lil_loop(t_fdf *fdf)
+static void		lil_loop(t_fdf *fdf, int mkey, int willshowmenu)
 {
-	t_tab pos;
-	int mkey;
+	t_tab	pos;
 
 	pos = fdf->keys;
 	while (pos)
@@ -41,11 +40,11 @@ static void		lil_loop(t_fdf *fdf)
 		mkey = pos->data;
 		change_projection(fdf, mkey);
 		if (mkey == 46)
-			show_menu(fdf);
+			willshowmenu++;
 		move_iso(fdf, mkey);
 		move_carre(fdf, mkey);
 		move_flat(fdf, mkey);
-		if (mkey == 18 || mkey == 19 || mkey == 20)
+		if (mkey == 18 || mkey == 19 || mkey == 20 || mkey == 46)
 			ft_noderm_int(&(fdf->keys), mkey);
 		pos = pos->next;
 	}
@@ -55,6 +54,8 @@ static void		lil_loop(t_fdf *fdf)
 		draw_tilt(fdf, fdf->map, fdf->cam[fdf->cp]);
 	else if (fdf->cp == FLAT)
 		draw_flat(fdf, fdf->map, fdf->cam[fdf->cp]);
+	if (willshowmenu)
+		show_menu(fdf);
 }
 
 int				loop_hook(t_fdf *fdf)
@@ -69,7 +70,7 @@ int				loop_hook(t_fdf *fdf)
 		{
 			if (fdf[x].keys)
 			{
-				lil_loop(&(fdf[x]));
+				lil_loop(&(fdf[x]), 0, 0);
 			}
 		}
 		x++;
