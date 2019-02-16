@@ -70,7 +70,7 @@ void			show_menu(t_fdf *fdf)
 	mlx_string_put(fdf->mlx, fdf->win, 10, y - 140, 0xFFFFFF,
 								"   Press current Projection to rotate");
 	mlx_string_put(fdf->mlx, fdf->win, 10, y - 120, 0xFFFFFF,
-								"   Move : Arrow Keys");
+								"   Move : Arrow Keys or Mouse Press");
 	mlx_string_put(fdf->mlx, fdf->win, 10, y - 100, 0xFFFFFF,
 								"   Change Altitude : + / -");
 	mlx_string_put(fdf->mlx, fdf->win, 10, y - 80, 0xFFFFFF,

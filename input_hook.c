@@ -32,9 +32,10 @@
 
 int	key_press(int key, t_fdf *fdf)
 {
-	fdf->mouse.x = 0;
 	if (key == 53)
 		return (close_hook(fdf));
+	if (18 <= key && key <= 20)
+		fdf->mouse.x = 0;
 	if (key != 46 || !ft_nodesearch_int(fdf->keys, 46))
 		ft_nodeadd_int(&(fdf->keys), key);
 	else
@@ -52,10 +53,25 @@ int	key_release(int key, t_fdf *fdf)
 
 int	mouse_press(int button, int x, int y, t_fdf *fdf)
 {
-	if (x > 0 && y > 0)
+	if (button == 1)
 	{
-		fdf->mouse.x = fdf->cam[fdf->cp].x - x;
-		fdf->mouse.y = fdf->cam[fdf->cp].y - y;
+		if (x > 0 && y > 0)
+		{
+			fdf->mouse.x = fdf->cam[fdf->cp].x - x;
+			fdf->mouse.y = fdf->cam[fdf->cp].y - y;
+		}
+	}
+	else if (button == 4 || button == 5)
+	{
+		move_iso(fdf, (button == 4 ? -4 : -5));
+		move_carre(fdf, (button == 4 ? -4 : -5));
+		move_flat(fdf, (button == 4 ? -4 : -5));
+		if (fdf->cp == ISO)
+			draw_tilt(fdf, fdf->map, fdf->cam[fdf->cp]);
+		else if (fdf->cp == CARRE)
+			draw_tilt(fdf, fdf->map, fdf->cam[fdf->cp]);
+		else if (fdf->cp == FLAT)
+			draw_flat(fdf, fdf->map, fdf->cam[fdf->cp]);
 	}
 	ft_printf("button :%d\tpos: %d\t%d\n", button, x, y);
 	return (0);
@@ -63,8 +79,11 @@ int	mouse_press(int button, int x, int y, t_fdf *fdf)
 
 int	mouse_release(int button, int x, int y, t_fdf *fdf)
 {
-	fdf->mouse.x = 0;
-	fdf->mouse.y = 0;
+		if (button == 1)
+	{
+		fdf->mouse.x = 0;
+		fdf->mouse.y = 0;
+	}
 	ft_printf("button :%d\tpos: %d\t%d\n", button, x, y);
 	return (0);
 }

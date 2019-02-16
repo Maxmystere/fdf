@@ -37,12 +37,12 @@ t_cam	move_iso(t_fdf *fdf, int key)
 		fdf->cam[fdf->cp].z--;
 	else if (key == 78)
 		fdf->cam[fdf->cp].z++;
-	else if (key == 84 && fdf->cam[fdf->cp].rx - 1 > 1)
+	else if ((key == 84 || key == -5) && fdf->cam[fdf->cp].rx - 1 > 1)
 	{
 		fdf->cam[fdf->cp].rx -= ZOOMSPEED * 2;
 		fdf->cam[fdf->cp].ry -= ZOOMSPEED;
 	}
-	else if (key == 91)
+	else if (key == 91 || key == -4)
 	{
 		fdf->cam[fdf->cp].rx += ZOOMSPEED * 2;
 		fdf->cam[fdf->cp].ry += ZOOMSPEED;
@@ -66,12 +66,12 @@ t_cam	move_carre(t_fdf *fdf, int key)
 		fdf->cam[fdf->cp].z--;
 	else if (key == 78)
 		fdf->cam[fdf->cp].z++;
-	else if (key == 84 && fdf->cam[fdf->cp].rx - 1 > 1)
+	else if ((key == 84 || key == -5) && fdf->cam[fdf->cp].rx - 1 > 1)
 	{
 		fdf->cam[fdf->cp].rx -= ZOOMSPEED;
 		fdf->cam[fdf->cp].ry -= ZOOMSPEED;
 	}
-	else if (key == 91)
+	else if (key == 91 || key == -4)
 	{
 		fdf->cam[fdf->cp].rx += ZOOMSPEED;
 		fdf->cam[fdf->cp].ry += ZOOMSPEED;
@@ -95,12 +95,12 @@ t_cam	move_flat(t_fdf *fdf, int key)
 		fdf->cam[fdf->cp].z--;
 	else if (key == 78)
 		fdf->cam[fdf->cp].z++;
-	else if (key == 84 && fdf->cam[fdf->cp].rx - 1 > 1)
+	else if ((key == 84 || key == -5) && fdf->cam[fdf->cp].rx - 1 > 1)
 	{
 		fdf->cam[fdf->cp].rx -= ZOOMSPEED;
 		fdf->cam[fdf->cp].ry -= ZOOMSPEED * 2;
 	}
-	else if (key == 91)
+	else if (key == 91 || key == -4)
 	{
 		fdf->cam[fdf->cp].rx += ZOOMSPEED;
 		fdf->cam[fdf->cp].ry += ZOOMSPEED * 2;
