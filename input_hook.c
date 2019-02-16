@@ -37,15 +37,13 @@ int		key_press(int key, t_fdf *fdf)
 
 	if (key == 53)
 		return (close_hook(fdf));
-	if (!(ft_nodesearch_int(fdf->keys, key)))
-		ft_nodeadd_int(&(fdf->keys), key);
-
+	ft_nodeadd_int(&(fdf->keys), key);
 	return (0);
 }
 
 int		key_release(int key, t_fdf *fdf)
 {
-	ft_noderm_int(fdf->keys, key);
+	ft_noderm_int(&(fdf->keys), key);
 	ft_printf("key release :%d\n", key);
 	return (0);
 }

@@ -58,7 +58,8 @@ static void	short_load(void *mlx, t_fdf *fdf, size_t v)
 	fdf[v].p_win.nb = v;
 	fdf[v].cp = ISO;
 	fdf[v].pr = 0;
-	fdf[v].keys = ft_nodenew(-42);
+	//fdf[v].keys = ft_nodenew(-42);
+	fdf[v].keys = NULL;
 }
 
 static int	load_all(void *mlx, t_fdf *fdf, int winnb, char **winname)
