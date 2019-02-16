@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:01:03 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/16 17:48:56 by tferrieu         ###   ########.fr       */
+/*   Updated: 2019/02/16 21:05:05 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	mouse_press(int button, int x, int y, t_fdf *fdf)
 
 int	mouse_release(int button, int x, int y, t_fdf *fdf)
 {
-		if (button == 1)
+	if (button == 1)
 	{
 		fdf->mouse.x = 0;
 		fdf->mouse.y = 0;

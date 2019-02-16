@@ -6,7 +6,7 @@
 /*   By: tferrieu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/16 16:32:14 by tferrieu          #+#    #+#             */
-/*   Updated: 2019/02/16 20:36:52 by magrab           ###   ########.fr       */
+/*   Updated: 2019/02/16 21:09:55 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,8 @@ void			show_menu(t_fdf *fdf)
 	mlx_string_put(fdf->mlx, fdf->win, 15, y - 8, 0x7f8c8d,
 								"_______________________________________");
 	while ((y -= 17) > fdf->p_win.sy - 265)
-	{
 		mlx_string_put(fdf->mlx, fdf->win, 10, y + 5, 0x7f8c8d,
 								"|                                      |");
-	}
 }
 
 int				main(int ac, char **av)
