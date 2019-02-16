@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   calculate_img.c                                    :+:      :+:    :+:   */
+/*   calculate_tilt.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 19:44:08 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/14 14:22:14 by magrab           ###   ########.fr       */
+/*   Updated: 2019/02/16 16:39:07 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,16 +108,21 @@ void			draw_text(t_fdf *fdf, int x, int y)
 
 	if (fdf->pr % 2 == 0)
 	{
-		mlx_string_put(fdf->mlx, fdf->win, x-5, y-10, (fdf->pr == 0 ? 0xF44141 : 0xFFFFFF), "/\\");
-		mlx_string_put(fdf->mlx, fdf->win, x-5, y+10, (fdf->pr == 0 ? 0xFFFFFF : 0xF44141), "\\/");
+		mlx_string_put(fdf->mlx, fdf->win, x - 5, y - 10, (fdf->pr == 0 ?
+												0xF44141 : 0xFFFFFF), "/\\");
+		mlx_string_put(fdf->mlx, fdf->win, x - 5, y + 10, (fdf->pr == 0 ?
+												0xFFFFFF : 0xF44141), "\\/");
 	}
 	else if (fdf->pr % 2)
 	{
-		mlx_string_put(fdf->mlx, fdf->win, x+10, y+2, (fdf->pr == 1 ? 0xF44141 : 0xFFFFFF), ">");
-		mlx_string_put(fdf->mlx, fdf->win, x-10, y+2, (fdf->pr == 1 ? 0xFFFFFF : 0xF44141), "<");
+		mlx_string_put(fdf->mlx, fdf->win, x + 10, y + 2, (fdf->pr == 1 ?
+												0xF44141 : 0xFFFFFF), ">");
+		mlx_string_put(fdf->mlx, fdf->win, x - 10, y + 2, (fdf->pr == 1 ?
+												0xFFFFFF : 0xF44141), "<");
 	}
 	mlx_string_put(fdf->mlx, fdf->win, x, y, 0xFFFFFF, "o");
-	mlx_string_put(fdf->mlx, fdf->win, x / 2, y, 0xFFFFFF, tmp = ft_itoa(fdf->p_m.x));
+	mlx_string_put(fdf->mlx, fdf->win, x / 2, y, 0xFFFFFF,
+													tmp = ft_itoa(fdf->p_m.x));
 	free(tmp);
 }
 
