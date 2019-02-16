@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:01:03 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/16 13:01:48 by magrab           ###   ########.fr       */
+/*   Updated: 2019/02/16 16:20:02 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@
 ** 126 = up key
 */
 
-int key_press(int key, t_fdf *fdf)
+int	key_press(int key, t_fdf *fdf)
 {
-	t_tab pos;
-	int mkey;
+	t_tab	pos;
+	int		mkey;
 
 	if (key == 53)
 		return (close_hook(fdf));
@@ -41,30 +41,29 @@ int key_press(int key, t_fdf *fdf)
 	return (0);
 }
 
-int key_release(int key, t_fdf *fdf)
+int	key_release(int key, t_fdf *fdf)
 {
 	ft_noderm_int(&(fdf->keys), key);
 	ft_printf("key release :%d\n", key);
 	return (0);
 }
 
-int mouse_hook(int button, int x, int y, t_fdf *fdf)
+int	mouse_hook(int button, int x, int y, t_fdf *fdf)
 {
 	ft_printf("button :%d\tpos: %d\t%d\n", button, x, y);
-	//test_draw(fdf, x, y);
 	return (0);
 }
 
-int mouse_move(int x, int y, t_fdf *fdf)
+int	mouse_move(int x, int y, t_fdf *fdf)
 {
 	return (0);
 }
 
-int loop_hook(t_fdf *fdf)
+int	loop_hook(t_fdf *fdf)
 {
-	int x;
-	t_tab pos;
-	int mkey;
+	int		x;
+	t_tab	pos;
+	int		mkey;
 
 	x = 0;
 	while (fdf[x].mlx)
