@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:01:03 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/16 16:20:02 by tferrieu         ###   ########.fr       */
+/*   Updated: 2019/02/16 16:43:56 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,8 @@ int	loop_hook(t_fdf *fdf)
 					move_iso(fdf, mkey);
 					move_carre(fdf, mkey);
 					move_flat(fdf, mkey);
-					if (mkey == 18)
-						ft_noderm_int(&(fdf->keys), 18);
-					if (mkey == 19)
-						ft_noderm_int(&(fdf->keys), 19);
-					if (mkey == 20)
-						ft_noderm_int(&(fdf->keys), 20);
+					if (mkey == 18 || mkhey == 19 || mkey == 20)
+						ft_noderm_int(&(fdf->keys), mkey);
 					pos = pos->next;
 				}
 				if (fdf->cp == ISO)
