@@ -102,30 +102,6 @@ static void		iso_pos2(t_fdf *fdf, t_cam pos, int x, int y)
 	}
 }
 
-void			draw_text(t_fdf *fdf, int x, int y)
-{
-	char *tmp;
-
-	if (fdf->pr % 2 == 0)
-	{
-		mlx_string_put(fdf->mlx, fdf->win, x - 5, y - 10, (fdf->pr == 0 ?
-												0xF44141 : 0xFFFFFF), "/\\");
-		mlx_string_put(fdf->mlx, fdf->win, x - 5, y + 10, (fdf->pr == 0 ?
-												0xFFFFFF : 0xF44141), "\\/");
-	}
-	else if (fdf->pr % 2)
-	{
-		mlx_string_put(fdf->mlx, fdf->win, x + 10, y + 2, (fdf->pr == 1 ?
-												0xF44141 : 0xFFFFFF), ">");
-		mlx_string_put(fdf->mlx, fdf->win, x - 10, y + 2, (fdf->pr == 1 ?
-												0xFFFFFF : 0xF44141), "<");
-	}
-	mlx_string_put(fdf->mlx, fdf->win, x, y, 0xFFFFFF, "o");
-	mlx_string_put(fdf->mlx, fdf->win, x / 2, y, 0xFFFFFF,
-													tmp = ft_itoa(fdf->p_m.x));
-	free(tmp);
-}
-
 void			*draw_tilt(t_fdf *fdf, t_map **tab, t_cam pos)
 {
 	int x;

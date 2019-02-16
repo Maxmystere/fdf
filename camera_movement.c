@@ -141,14 +141,16 @@ t_fdf	*change_projection(t_fdf *fdf, int key)
 	else if (key == 20)
 	{
 		if (fdf->cp == 2)
-			fdf->pr = (fdf->pr + 1 <= 1 ? fdf->pr + 1 : 0);
+			fdf->pr = (fdf->pr + 1 <= 0 ? fdf->pr + 1 : 0);
 		fdf->cp = 2;
 	}
+	/*
 	else if (key == 21)
 	{
 		if (fdf->cp == 3)
 			fdf->pr = (fdf->pr + 1 <= 3 ? fdf->pr + 1 : 0);
 		fdf->cp = 3;
 	}
+	*/
 	return (fdf);
 }

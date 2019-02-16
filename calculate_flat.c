@@ -70,6 +70,7 @@ void		*draw_flat(t_fdf *fdf, t_map **tab, t_cam pos)
 		x++;
 	}
 	mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->img[fdf->cp], 0, 0);
+	draw_text(fdf, fdf->p_win.sx - 60, 30);
 	fdf->istr = NULL;
 	return (0);
 }

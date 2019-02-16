@@ -80,6 +80,7 @@ typedef struct	s_fdf{
 	void	*win;
 	t_map	**map;
 	t_dot	p_m;
+	char	*winstr;
 	t_tab	keys;
 	int		pr;
 	int		cp;
@@ -120,6 +121,7 @@ t_fdf			*init_mlx(int winnb, char **winname);
 
 void			*draw_tilt(t_fdf *fdf, t_map **tab, t_cam pos);
 void			*draw_flat(t_fdf *fdf, t_map **tab, t_cam pos);
+void			draw_text(t_fdf *fdf, int x, int y);
 
 int				close_hook(t_fdf *fdf);
 
