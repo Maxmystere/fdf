@@ -36,7 +36,10 @@ void			draw_text(t_fdf *fdf, int x, int y)
 	char *tmp;
 	char *nbstr;
 
-	draw_order(fdf, fdf->p_win.sx - 50, fdf->p_win.sy - 50, 0xd35400);
+	draw_order(fdf, fdf->p_win.sx - 50, fdf->p_win.sy - 50, 0x500b00);
+	draw_order(fdf, fdf->p_win.sx - 49, fdf->p_win.sy - 49, 0xff6950);
+	draw_order(fdf, fdf->p_win.sx - 49, fdf->p_win.sy - 50, 0xff6950);
+	draw_order(fdf, fdf->p_win.sx - 50, fdf->p_win.sy - 49, 0xff6950);
 	draw_boussole(fdf, x, y);
 	nbstr = ft_itoa(fdf->p_m.x);
 	tmp = ft_strjoin("X : ", nbstr);

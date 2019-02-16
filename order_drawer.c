@@ -25,19 +25,19 @@ static t_pos new_p(int x,int y, int c)
 void	draw_order(t_fdf *fdf, int x, int y, int c)
 {
 	draw_line(fdf, new_p(x, y - 25, c), new_p(x - 22, y - 12, c));
+    draw_line(fdf, new_p(x, y - 25, c), new_p(x + 22, y - 12, c));
 	draw_line(fdf, new_p(x - 22, y + 12, c), new_p(x - 22, y - 12, c));
 	draw_line(fdf, new_p(x - 22, y + 12, c), new_p(x, y + 25, c));
 	draw_line(fdf, new_p(x + 22, y + 12, c), new_p(x, y + 25, c));
-	draw_line(fdf, new_p(x + 22, y + 12, c), new_p(x, y + 25, c));
 	draw_line(fdf, new_p(x + 22, y + 12, c), new_p(x + 22, y - 12, c));
-	draw_line(fdf, new_p(x, y - 25, c), new_p(x + 22, y - 12, c));
+    
 
-	draw_line(fdf, new_p(x + 14, y - 17, c), new_p(x + 14, y + 8, c));
-    draw_line(fdf, new_p(x, y + 16, c), new_p(x + 14, y + 8, c));
-	draw_line(fdf, new_p(x + 7, y + 20, c), new_p(x - 14, y + 8, c));
+	draw_line(fdf, new_p(x - 14, y + 17, c), new_p(x - 14, y - 8, c));
+    draw_line(fdf, new_p(x, y - 16, c), new_p(x - 14, y - 8, c));
+	draw_line(fdf, new_p(x - 7, y - 20, c), new_p(x + 14, y - 8, c));
 
-	draw_line(fdf, new_p(x - 14, y - 17, c), new_p(x - 14, y + 8, c));
+	draw_line(fdf, new_p(x + 14, y + 8, c), new_p(x + 14, y - 8, c));
 
-	draw_line(fdf, new_p(x - 22, y - 4, c), new_p(x, y - 17, c));
-	//draw_line(fdf, new_p(x - 13, y - 18, c), new_p(x - 13, y + 7, c));
+	draw_line(fdf, new_p(x + 22, y + 4, c), new_p(x, y + 17, c));
+	draw_line(fdf, new_p(x, y + 17, c), new_p(x - 14, y + 8, c));
 }
