@@ -49,9 +49,9 @@ void		fill_line(t_fdf *fdf, t_pos pos0, t_pos pos1)
 	d.y = ft_abs(pos1.y - pos0.y);
 	d.z = (pos0.x < pos1.x ? 1 : -1);
 	d.c = (pos0.y < pos1.y ? 1 : -1);
-	err = (d.x > d.y ? d.x : -d.y);
+	err = (d.x > d.y ? d.x : -d.y) / 2;
 	fill_pixel(fdf, pos0.x, pos0.y, pos0.c);
-	while (pos0.x != pos1.x && pos0.y != pos1.y)
+	while (pos0.x != pos1.x || pos0.y != pos1.y)
 	{
 		fill_pixel(fdf, pos0.x, pos0.y, grad(orig, pos0, pos1));
 		e2 = err;

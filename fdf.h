@@ -21,6 +21,7 @@
 
 # define WINX 1500
 # define WINY 1000
+# define CAMSPEED 3
 
 /*
 ** Maximum number of projections
@@ -99,6 +100,7 @@ void			show_menu(t_fdf *fdf);
 
 t_cam			move_iso(t_fdf *fdf, int key);
 t_cam			move_carre(t_fdf *fdf, int key);
+t_cam			move_flat(t_fdf *fdf, int key);
 t_fdf			*change_projection(t_fdf *fdf, int key);
 
 int				key_press(int key, t_fdf *fdf);
