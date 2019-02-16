@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 19:34:47 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/14 13:53:27 by magrab           ###   ########.fr       */
+/*   Updated: 2019/02/16 16:18:41 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ static void	short_load(void *mlx, t_fdf *fdf, size_t v)
 	fdf[v].p_win.nb = v;
 	fdf[v].cp = ISO;
 	fdf[v].pr = 0;
-	//fdf[v].keys = ft_nodenew(-42);
 	fdf[v].keys = NULL;
 }
 
