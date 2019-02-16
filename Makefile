@@ -6,7 +6,7 @@
 #    By: tferrieu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/16 17:28:51 by tferrieu          #+#    #+#              #
-#    Updated: 2019/02/16 17:45:08 by tferrieu         ###   ########.fr        #
+#    Updated: 2019/02/16 21:02:24 by tferrieu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ SRC-C		=	./calculate_flat.c \
 				./loop_hook.c \
 				./mlxmain.c \
 				./parsing.c \
-				./program_close.c
+				./program_close.c \
+				./order_drawer.c
 
 SRC-O		=	$(SRC-C:.c=.o)
 
