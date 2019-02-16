@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:03:51 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/14 14:53:32 by tferrieu         ###   ########.fr       */
+/*   Updated: 2019/02/16 20:36:29 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,7 @@ void			test_draw(t_fdf *fdf, int x, int y);
 t_pos			*init_value(int x, int y, int z, int c);
 t_fdf			*init_mlx(int winnb, char **winname);
 
+void			draw_order(t_fdf *fdf, int x, int y, int c);
 void			*draw_tilt(t_fdf *fdf, t_map **tab, t_cam pos);
 void			*draw_flat(t_fdf *fdf, t_map **tab, t_cam pos);
 void			draw_text(t_fdf *fdf, int x, int y);

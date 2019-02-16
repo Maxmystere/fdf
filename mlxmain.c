@@ -6,7 +6,7 @@
 /*   By: tferrieu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/16 16:32:14 by tferrieu          #+#    #+#             */
-/*   Updated: 2019/02/16 16:32:17 by tferrieu         ###   ########.fr       */
+/*   Updated: 2019/02/16 20:36:52 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void			draw_text(t_fdf *fdf, int x, int y)
 	char *tmp;
 	char *nbstr;
 
+	draw_order(fdf, fdf->p_win.sx - 50, fdf->p_win.sy - 50, 0xd35400);
 	draw_boussole(fdf, x, y);
 	nbstr = ft_itoa(fdf->p_m.x);
 	tmp = ft_strjoin("X : ", nbstr);
