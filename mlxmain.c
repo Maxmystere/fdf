@@ -34,28 +34,39 @@ static void		draw_boussole(t_fdf *fdf, int x, int y)
 void			draw_text(t_fdf *fdf, int x, int y)
 {
 	draw_boussole(fdf, x, y);
-	mlx_string_put(fdf->mlx, fdf->win, x / 2, y, 0xFFFFFF, fdf->winstr);
-
+	mlx_string_put(fdf->mlx, fdf->win, 50, y, 0xFFFFFF, fdf->winstr);
 }
 
 void			show_menu(t_fdf *fdf)
 {
-	mlx_string_put(fdf->mlx, fdf->win, 10, 10, 0xFFFFFF,
-								"/  Tuto !                              \\");
-	mlx_string_put(fdf->mlx, fdf->win, 10, 30, 0xFFFFFF,
-								"|  Change Projection : 1, 2, 3         |");
-	mlx_string_put(fdf->mlx, fdf->win, 10, 50, 0xFFFFFF,
-								"|  Press current Projection to rotate  |");
-	mlx_string_put(fdf->mlx, fdf->win, 10, 70, 0xFFFFFF,
-								"|  Move : Arrow Keys                   |");
-	mlx_string_put(fdf->mlx, fdf->win, 10, 90, 0xFFFFFF,
-								"|  Change Altitude : + / -             |");
-	mlx_string_put(fdf->mlx, fdf->win, 10, 110, 0xFFFFFF,
-								"|  Zoom in/out : 8 / 2 (NUMPAD         |");
-	mlx_string_put(fdf->mlx, fdf->win, 10, 130, 0xFFFFFF,
-								"|  Show this Menu : M                  |");
-	mlx_string_put(fdf->mlx, fdf->win, 10, 170, 0xFFFFFF,
-								"|  Quit : Esc                          |");
+	int y;
+
+	y = fdf->p_win.sy - 60;
+	mlx_string_put(fdf->mlx, fdf->win, 15, y - 213, 0xFFFFFF,
+								"_______________________________________");
+	mlx_string_put(fdf->mlx, fdf->win, 15, y - 190, 0xFFFFFF,
+								"   Tuto !");
+	mlx_string_put(fdf->mlx, fdf->win, 10, y - 160, 0xFFFFFF,
+								"   Change Projection : 1, 2, 3");
+	mlx_string_put(fdf->mlx, fdf->win, 10, y - 140, 0xFFFFFF,
+								"   Press current Projection to rotate");
+	mlx_string_put(fdf->mlx, fdf->win, 10, y - 120, 0xFFFFFF,
+								"   Move : Arrow Keys");
+	mlx_string_put(fdf->mlx, fdf->win, 10, y - 100, 0xFFFFFF,
+								"   Change Altitude : + / -");
+	mlx_string_put(fdf->mlx, fdf->win, 10, y - 80, 0xFFFFFF,
+								"   Zoom in/out : 8 / 2 (NUMPAD)");
+	mlx_string_put(fdf->mlx, fdf->win, 10, y - 60, 0xFFFFFF,
+								"   Show this Menu : M");
+	mlx_string_put(fdf->mlx, fdf->win, 10, y - 20, 0xFFFFFF,
+								"   Quit : Esc");
+	mlx_string_put(fdf->mlx, fdf->win, 15, y - 8, 0xFFFFFF,
+								"_______________________________________");
+	while ((y -= 17) > fdf->p_win.sy - 265)
+	{
+		mlx_string_put(fdf->mlx, fdf->win, 10, y + 5, 0xFFFFFF,
+								"|                                      |");
+	}
 }
 
 int				main(int ac, char **av)

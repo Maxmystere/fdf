@@ -44,7 +44,7 @@ static void		lil_loop(t_fdf *fdf, int mkey, int willshowmenu)
 		move_iso(fdf, mkey);
 		move_carre(fdf, mkey);
 		move_flat(fdf, mkey);
-		if (mkey == 18 || mkey == 19 || mkey == 20 || mkey == 46)
+		if (mkey == 18 || mkey == 19 || mkey == 20)
 			ft_noderm_int(&(fdf->keys), mkey);
 		pos = pos->next;
 	}
