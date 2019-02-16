@@ -71,6 +71,7 @@ int loop_hook(t_fdf *fdf)
 	{
 		if (fdf[x].win)
 		{
+			ft_nodeprint_int(fdf[x].keys);
 			if (fdf[x].keys)
 			{
 				pos = fdf->keys;
@@ -86,6 +87,8 @@ int loop_hook(t_fdf *fdf)
 						move_carre(fdf, mkey);
 					else if (fdf->cp == FLAT)
 						move_carre(fdf, mkey);
+					else if (mkey == 18)
+						ft_noderm_int(&(fdf->keys), 18);
 					pos = pos->next;
 				}
 				if (fdf->cp == ISO)
