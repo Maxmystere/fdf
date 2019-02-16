@@ -64,8 +64,10 @@ static void	short_load(void *mlx, t_fdf *fdf, size_t v)
 static int	load_all(void *mlx, t_fdf *fdf, int winnb, char **winname)
 {
 	size_t	v;
+	int		winopened;
 
 	v = -1;
+	winopened = 0;
 	while (++v < winnb - 1)
 	{
 		if (!(fdf[v].map = parse_file(winname[v + 1], &(fdf[v]))))
@@ -73,7 +75,7 @@ static int	load_all(void *mlx, t_fdf *fdf, int winnb, char **winname)
 			ft_printf("Could not open file %s\n", winname[v + 1]);
 			fdf[v].win = NULL;
 		}
-		else
+		else if (++winopened)
 		{
 			short_load(mlx, fdf, v);
 			basic_cam(&(fdf[v]));
@@ -85,7 +87,7 @@ static int	load_all(void *mlx, t_fdf *fdf, int winnb, char **winname)
 				return (-1);
 		}
 	}
-	return (0);
+	return (winopened);
 }
 
 t_fdf		*init_mlx(int winnb, char **winname)
@@ -100,6 +102,6 @@ t_fdf		*init_mlx(int winnb, char **winname)
 	fdf[winnb - 1].mlx = NULL;
 	if (!(mlx = mlx_init()))
 		return (NULL);
-	load_all(mlx, fdf, winnb, winname);
+	ft_printf("Win loaded : %d\n", load_all(mlx, fdf, winnb, winname));
 	return (fdf);
 }
