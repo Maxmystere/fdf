@@ -32,6 +32,7 @@ int				main(int ac, char **av)
 	if (!(fdf = init_mlx(ac, av)))
 		return (-1);
 	x = -1;
+	mlx_do_key_autorepeatoff(fdf->mlx);
 	while (++x < ac - 1)
 	{
 		if (fdf[x].win)

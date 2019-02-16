@@ -38,14 +38,14 @@ int		key_press(int key, t_fdf *fdf)
 	if (key == 53)
 		return (close_hook(fdf));
 	if (!(ft_nodesearch_int(fdf->keys, key)))
-		ft_nodepushend(&(fdf->keys), key);
+		ft_nodeadd_int(&(fdf->keys), key);
 
 	return (0);
 }
 
 int		key_release(int key, t_fdf *fdf)
 {
-	ft_noderm(ft_nodesearch_int(fdf->keys, key));
+	ft_noderm_int(fdf->keys, key);
 	ft_printf("key release :%d\n", key);
 	return (0);
 }
@@ -72,6 +72,7 @@ int		loop_hook(t_fdf *fdf)
 		if (fdf[x].win)
 		{
 			printf("win : %s\n", fdf[x].p_win.title);
+			ft_nodeprint_int(fdf[x].keys);
 			/*
 			pos = fdf->keys;
 			while (pos)
