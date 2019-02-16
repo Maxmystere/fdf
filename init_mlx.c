@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 19:34:47 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/16 16:18:41 by tferrieu         ###   ########.fr       */
+/*   Updated: 2019/02/16 17:55:52 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,11 @@ static void	short_load(void *mlx, t_fdf *fdf, size_t v)
 	fdf[v].cp = ISO;
 	fdf[v].pr = 0;
 	fdf[v].keys = NULL;
-	tmp = ft_strjoin(" x : ", nbstr = ft_itoa(fdf->p_m.x));
+	nbstr = ft_itoa(fdf->p_m.x);
+	tmp = ft_strjoin(" x : ", nbstr);
 	free(nbstr);
-	tmp2 = ft_strjoin("   |   y : ", nbstr = ft_itoa(fdf->p_m.y));
+	nbstr = ft_itoa(fdf->p_m.y);
+	tmp2 = ft_strjoin("   |   y : ", nbstr);
 	free(nbstr);
 	fdf[v].winstr = ft_strjoin_free(&tmp, &tmp2, 3);
 }
@@ -73,7 +75,7 @@ static void	short_load(void *mlx, t_fdf *fdf, size_t v)
 static int	load_all(void *mlx, t_fdf *fdf, int winnb, char **winname)
 {
 	int	v;
-	int		winopened;
+	int	winopened;
 
 	v = -1;
 	winopened = 0;
