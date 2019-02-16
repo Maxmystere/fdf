@@ -69,7 +69,7 @@ int		loop_hook(t_fdf *fdf)
 	{
 		if (fdf[x].win)
 		{
-			printf("win : %s\n", fdf[x].p_win.title);
+			ft_printf("win : %s\n", fdf[x].p_win.title);
 			ft_nodeprint_int(fdf[x].keys);
 			/*
 			pos = fdf->keys;
