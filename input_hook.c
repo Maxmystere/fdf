@@ -30,7 +30,7 @@
 ** 126 = up key
 */
 
-int		key_press(int key, t_fdf *fdf)
+int key_press(int key, t_fdf *fdf)
 {
 	t_tab pos;
 	int mkey;
@@ -41,59 +41,62 @@ int		key_press(int key, t_fdf *fdf)
 	return (0);
 }
 
-int		key_release(int key, t_fdf *fdf)
+int key_release(int key, t_fdf *fdf)
 {
 	ft_noderm_int(&(fdf->keys), key);
 	ft_printf("key release :%d\n", key);
 	return (0);
 }
 
-int		mouse_hook(int button, int x, int y, t_fdf *fdf)
+int mouse_hook(int button, int x, int y, t_fdf *fdf)
 {
 	ft_printf("button :%d\tpos: %d\t%d\n", button, x, y);
 	//test_draw(fdf, x, y);
 	return (0);
 }
 
-int		mouse_move(int x, int y, t_fdf *fdf)
+int mouse_move(int x, int y, t_fdf *fdf)
 {
 	return (0);
 }
 
-int		loop_hook(t_fdf *fdf)
+int loop_hook(t_fdf *fdf)
 {
-	int		x;
+	int x;
+	t_tab pos;
+	int mkey;
 
 	x = 0;
 	while (fdf[x].mlx)
 	{
 		if (fdf[x].win)
 		{
-			ft_printf("win : %s\n", fdf[x].p_win.title);
-			ft_nodeprint_int(fdf[x].keys);
-			/*
-			pos = fdf->keys;
-			while (pos)
+			if (fdf[x].keys)
 			{
-				
-				mkey = pos->data;
-				change_projection(fdf, mkey);
-				if (mkey == 46)
-					show_menu(fdf);
-				else if (fdf->cp == ISO)
-					draw_tilt(fdf, fdf->map, move_iso(fdf, mkey));
+				pos = fdf->keys;
+				while (pos)
+				{
+					mkey = pos->data;
+					change_projection(fdf, mkey);
+					if (mkey == 46)
+						show_menu(fdf);
+					else if (fdf->cp == ISO)
+						move_iso(fdf, mkey);
+					else if (fdf->cp == CARRE)
+						move_carre(fdf, mkey);
+					else if (fdf->cp == FLAT)
+						move_carre(fdf, mkey);
+					pos = pos->next;
+				}
+				if (fdf->cp == ISO)
+					draw_tilt(fdf, fdf->map, fdf->cam[fdf->cp]);
 				else if (fdf->cp == CARRE)
-					draw_tilt(fdf, fdf->map, move_carre(fdf, mkey));
+					draw_tilt(fdf, fdf->map, fdf->cam[fdf->cp]);
 				else if (fdf->cp == FLAT)
-					draw_flat(fdf, fdf->map, move_carre(fdf, mkey));
-				else
-					ft_printf("win : %s\tkey :%d\n", fdf->p_win.title, mkey);
-				pos = pos->next;
+					draw_flat(fdf, fdf->map, fdf->cam[fdf->cp]);
 			}
-			*/
 		}
 		x++;
 	}
-	ft_printf("\n");
 	return (0);
 }

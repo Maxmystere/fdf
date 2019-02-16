@@ -73,13 +73,13 @@ t_cam	move_carre(t_fdf *fdf, int key)
         fdf->cam[fdf->cp].ry++;
     }
 	else if (key == 123)
-		fdf->cam[fdf->cp].x -= 5;
+		fdf->cam[fdf->cp].x -= 1;
 	else if (key == 124)
-		fdf->cam[fdf->cp].x += 5;
+		fdf->cam[fdf->cp].x += 1;
 	else if (key == 125)
-		fdf->cam[fdf->cp].y += 5;
+		fdf->cam[fdf->cp].y += 1;
 	else if (key == 126)
-		fdf->cam[fdf->cp].y -= 5;
+		fdf->cam[fdf->cp].y -= 1;
 	return (fdf->cam[fdf->cp]);
 }
 

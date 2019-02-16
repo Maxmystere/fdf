@@ -30,16 +30,16 @@ static t_pos	reduceline(t_fdf *fdf, t_cam pos, int function)
 	{
 		add.z = (fdf->pr == 1 ? 1 : -1);
 		add.c = (fdf->pr % 2 ? -1 : 1);
-		add.x = pos.x - (fdf->p_m.x / 2 - fdf->p_m.y / 2)
+		add.x = pos.x - (fdf->p_m.y / 2 - fdf->p_m.x / 2)
 			* pos.rx * add.z * add.c;
-		add.y = pos.y - (fdf->p_m.x / 2 + fdf->p_m.y / 2) * pos.ry * add.z;
+		add.y = pos.y - (fdf->p_m.y / 2 + fdf->p_m.x / 2) * pos.ry * add.z;
 	}
 	else
 	{
 		add.z = (fdf->pr == 0 ? 1 : -1);
 		add.c = (fdf->pr % 2 ? -1 : 1);
-		add.x = pos.x - (fdf->p_m.x / 2 + fdf->p_m.y / 2) * pos.rx * add.z;
-		add.y = pos.y - (fdf->p_m.x / 2 - fdf->p_m.y / 2) * pos.ry * add.z;
+		add.x = pos.x - (fdf->p_m.y / 2 + fdf->p_m.x / 2) * pos.rx * add.z;
+		add.y = pos.y - (fdf->p_m.y / 2 - fdf->p_m.x / 2) * pos.ry * add.z;
 	}
 	return (add);
 }
@@ -130,10 +130,10 @@ void			*draw_tilt(t_fdf *fdf, t_map **tab, t_cam pos)
 			&(fdf->s_l), &(fdf->e));
 	ft_bzero(fdf->istr, fdf->p_win.sx * fdf->p_win.sy * 4);
 	mlx_clear_window(fdf->mlx, fdf->win);
-	x = (fdf->pr < 2 ? 0 : fdf->p_m.x - 1);
+	x = (fdf->pr < 2 ? 0 : fdf->p_m.y - 1);
 	while (x >= 0 && tab[x])
 	{
-		y = (fdf->pr < 2 ? 0 : fdf->p_m.y - 1);
+		y = (fdf->pr < 2 ? 0 : fdf->p_m.x - 1);
 		while (y >= 0 && tab[x][y].c != -42)
 		{
 			if (fdf->pr % 2)
