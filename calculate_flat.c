@@ -31,14 +31,14 @@ void drawer(t_fdf *fdf, t_cam pos, int x, int y)
 	if (tab[x][y + 1].c != -42)
 	{
 		pos1.x = x * pos.rx + (y + 1) * pos.ry + add.x;
-		pos1.y = x * pos.rx + tab[x][y].z * pos.z + add.y;
+		pos1.y = x * pos.rx + tab[x][y + 1].z * pos.z + add.y;
 		pos1.c = tab[x][y + 1].c;
 		fill_line(fdf, pos0, pos1);
 	}
 	if (tab[x + 1])
 	{
 		pos2.x = (x + 1) * pos.rx + y * pos.ry + add.x;
-		pos2.y = (x + 1) * pos.rx + tab[x][y].z * pos.z + add.y;
+		pos2.y = (x + 1) * pos.rx + tab[x + 1][y].z * pos.z + add.y;
 		pos2.c = tab[x + 1][y].c;
 		fill_line(fdf, pos0, pos2);
 	}

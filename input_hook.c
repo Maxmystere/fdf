@@ -86,7 +86,7 @@ int	loop_hook(t_fdf *fdf)
 						ft_noderm_int(&(fdf->keys), 18);
 					if (mkey == 19)
 						ft_noderm_int(&(fdf->keys), 19);
-					if (mkey == 19)
+					if (mkey == 20)
 						ft_noderm_int(&(fdf->keys), 20);
 					pos = pos->next;
 				}

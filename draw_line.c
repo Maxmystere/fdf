@@ -37,6 +37,20 @@ static int	grad(t_pos orig, t_pos current, t_pos end)
 	return (color);
 }
 
+static int	in_win(t_fdf *fdf, t_pos pos0, t_pos pos1)
+{
+	int		winx;
+	int		winy;
+
+	winx = fdf->p_win.sx;
+	winy = fdf->p_win.sy;
+	if ((pos0.x < 0 && pos1.x < 0) || (pos0.y < 0 && pos1.y < 0))
+		return (0);
+	if ((pos0.x > winx && pos1.x > winx) || (pos0.y > winy && pos1.y > winy))
+		return (0);
+	return (1);
+}
+
 void		fill_line(t_fdf *fdf, t_pos pos0, t_pos pos1)
 {
 	t_pos	d;
@@ -51,7 +65,7 @@ void		fill_line(t_fdf *fdf, t_pos pos0, t_pos pos1)
 	d.c = (pos0.y < pos1.y ? 1 : -1);
 	err = (d.x > d.y ? d.x : -d.y) / 2;
 	fill_pixel(fdf, pos0.x, pos0.y, pos0.c);
-	while (pos0.x != pos1.x || pos0.y != pos1.y)
+	while ((pos0.x != pos1.x || pos0.y != pos1.y) && in_win(fdf, pos0, pos1))
 	{
 		fill_pixel(fdf, pos0.x, pos0.y, grad(orig, pos0, pos1));
 		e2 = err;
