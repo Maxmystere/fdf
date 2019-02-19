@@ -6,7 +6,7 @@
 /*   By: tferrieu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 17:18:53 by tferrieu          #+#    #+#             */
-/*   Updated: 2019/02/16 17:50:12 by tferrieu         ###   ########.fr       */
+/*   Updated: 2019/02/19 18:30:40 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,10 @@ static t_map	*process_line(char **line, int len)
 		x++;
 	}
 	if (x < len)
+	{
+		free(vline);
 		return (NULL);
+	}
 	vline[x].c = -42;
 	return (vline);
 }
@@ -123,13 +126,14 @@ static t_map	**process_values(char ***splitab, int nbl, int len)
 	{
 		if (!(tab_val[i] = process_line(splitab[i], len)))
 		{
-			clean_3dtab(splitab + i);
+			clean_3dtab(splitab);
 			clean_postab(tab_val);
+			free(splitab);
 			return (NULL);
 		}
-		ft_2dchar_free(splitab + i);
 		i++;
 	}
+	clean_3dtab(splitab);
 	free(splitab);
 	return (tab_val);
 }
