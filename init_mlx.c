@@ -101,7 +101,7 @@ t_fdf		*init_mlx(int winnb, char **winname)
 	fdf[winnb - 1].mlx = NULL;
 	if (!(mlx = mlx_init()))
 		return (NULL);
-	if (!load_all(mlx, fdf, winnb, winname))
+	if (load_all(mlx, fdf, winnb, winname) <= 0)
 		exit(0);
 	return (fdf);
 }
