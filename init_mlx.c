@@ -18,16 +18,19 @@
 
 static void	basic_cam(t_fdf *fdf)
 {
+	int x;
+
+	x = (fdf->p_m.x > 400 ? 1 : 400 / fdf->p_m.x);
 	fdf->cam[ISO].x = fdf->p_win.sx / 2;
 	fdf->cam[ISO].y = fdf->p_win.sy / 2;
 	fdf->cam[ISO].z = -2;
-	fdf->cam[ISO].rx = 32;
-	fdf->cam[ISO].ry = 16;
+	fdf->cam[ISO].rx = x * 2;
+	fdf->cam[ISO].ry = x;
 	fdf->cam[CARRE].x = fdf->p_win.sx / 2;
 	fdf->cam[CARRE].y = fdf->p_win.sy / 2;
 	fdf->cam[CARRE].z = -2;
-	fdf->cam[CARRE].rx = 25;
-	fdf->cam[CARRE].ry = 25;
+	fdf->cam[CARRE].rx = x;
+	fdf->cam[CARRE].ry = x;
 	fdf->cam[FLAT].x = fdf->p_win.sx / 2;
 	fdf->cam[FLAT].y = fdf->p_win.sy / 2;
 	fdf->cam[FLAT].z = -2;

@@ -6,7 +6,7 @@
 /*   By: tferrieu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/16 16:32:14 by tferrieu          #+#    #+#             */
-/*   Updated: 2019/02/19 15:38:01 by magrab           ###   ########.fr       */
+/*   Updated: 2019/02/19 20:58:05 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,23 @@ static void		draw_boussole(t_fdf *fdf, int x, int y)
 												0xFFFFFF : 0xF44141), "<");
 	}
 	mlx_string_put(fdf->mlx, fdf->win, x, y, 0xFFFFFF, "o");
+}
+
+static void		draw_more(t_fdf *fdf, int x,int y)
+{
+	char	*tmp;
+	char	*nbstr;
+	int		rx;
+	int		ry;
+
+	rx = fdf->cam[fdf->cp].rx;
+	ry = fdf->cam[fdf->cp].ry;
+	nbstr = ft_itoa(rx <= ry ? rx : ry);
+	tmp = ft_strjoin("Zoom : ", nbstr);
+	mlx_string_put(fdf->mlx, fdf->win, 50, y + 75, 0xf44336, tmp);
+	free(nbstr);
+	free(tmp);
+	(void)x;
 }
 
 void			draw_text(t_fdf *fdf, int x, int y)
@@ -56,6 +73,7 @@ void			draw_text(t_fdf *fdf, int x, int y)
 	mlx_string_put(fdf->mlx, fdf->win, 50, y + 50, 0xf44336, tmp);
 	free(nbstr);
 	free(tmp);
+	draw_more(fdf, x, y);
 }
 
 void			show_menu(t_fdf *fdf)
