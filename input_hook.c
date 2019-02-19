@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:01:03 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/19 15:33:01 by magrab           ###   ########.fr       */
+/*   Updated: 2019/02/19 18:56:20 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,13 @@ int	mouse_press(int button, int x, int y, t_fdf *fdf)
 {
 	if (button == 1)
 	{
-		if (x > 0 && y > 0)
+		if (x > 0 && y > 0 && fdf->p_win.sx > x && fdf->p_win.sy > y)
 		{
 			fdf->mouse.x = fdf->cam[fdf->cp].x - x;
 			fdf->mouse.y = fdf->cam[fdf->cp].y - y;
 		}
+		else
+			return (mouse_release(1, 0, 0, fdf));
 	}
 	else if (button == 4 || button == 5)
 	{
