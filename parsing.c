@@ -6,7 +6,7 @@
 /*   By: tferrieu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 17:18:53 by tferrieu          #+#    #+#             */
-/*   Updated: 2019/02/19 18:30:40 by tferrieu         ###   ########.fr       */
+/*   Updated: 2019/02/19 20:48:47 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,12 @@ static t_map	**process_values(char ***splitab, int nbl, int len)
 	int		i;
 
 	i = 0;
-	tab_val = (t_map **)malloc(sizeof(t_map) * (nbl + 1));
+	if (!(tab_val = (t_map **)malloc(sizeof(t_map) * (nbl + 1))))
+	{
+		clean_3dtab(splitab);
+		free(splitab);
+		return (NULL);
+	}
 	tab_val[nbl] = NULL;
 	while (i < nbl)
 	{
