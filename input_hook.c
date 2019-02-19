@@ -79,6 +79,8 @@ int	mouse_press(int button, int x, int y, t_fdf *fdf)
 
 int	mouse_release(int button, int x, int y, t_fdf *fdf)
 {
+	(void)x;
+	(void)y;
 	if (button == 1)
 	{
 		fdf->mouse.x = 0;
