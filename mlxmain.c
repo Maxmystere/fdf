@@ -6,7 +6,7 @@
 /*   By: tferrieu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/16 16:32:14 by tferrieu          #+#    #+#             */
-/*   Updated: 2019/02/16 21:09:55 by tferrieu         ###   ########.fr       */
+/*   Updated: 2019/02/19 15:38:01 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,7 @@ void			show_menu(t_fdf *fdf)
 	y = fdf->p_win.sy - 60;
 	mlx_string_put(fdf->mlx, fdf->win, 15, y - 213, 0x7f8c8d,
 								"_______________________________________");
-	mlx_string_put(fdf->mlx, fdf->win, 10, y - 192, 0xe74c3c,
-								"   Tutorial");
+	mlx_string_put(fdf->mlx, fdf->win, 10, y - 192, 0xe74c3c, "   Tutorial");
 	mlx_string_put(fdf->mlx, fdf->win, 15, y - 185, 0x7f8c8d,
 								"_______________________________________");
 	mlx_string_put(fdf->mlx, fdf->win, 10, y - 160, 0xFFFFFF,
@@ -79,10 +78,8 @@ void			show_menu(t_fdf *fdf)
 								"   Change Altitude : + / -");
 	mlx_string_put(fdf->mlx, fdf->win, 10, y - 80, 0xFFFFFF,
 								"   Zoom in/out : 8 / 2 (NUMPAD)");
-	mlx_string_put(fdf->mlx, fdf->win, 10, y - 60, 0xFFFFFF,
-								"   Show this Menu : M");
-	mlx_string_put(fdf->mlx, fdf->win, 10, y - 20, 0xbdc3c7,
-								"   Quit : Esc");
+	mlx_string_put(fdf->mlx, fdf->win, 40, y - 60, 0xFFFFFF, "Show Menu : M");
+	mlx_string_put(fdf->mlx, fdf->win, 40, y - 20, 0xbdc3c7, "Quit : Esc");
 	mlx_string_put(fdf->mlx, fdf->win, 15, y - 8, 0x7f8c8d,
 								"_______________________________________");
 	while ((y -= 17) > fdf->p_win.sy - 265)

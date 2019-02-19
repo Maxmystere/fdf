@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:01:03 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/19 15:05:21 by magrab           ###   ########.fr       */
+/*   Updated: 2019/02/19 15:33:01 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ int	mouse_press(int button, int x, int y, t_fdf *fdf)
 		move_iso(fdf, (button == 4 ? -4 : -5));
 		move_carre(fdf, (button == 4 ? -4 : -5));
 		move_flat(fdf, (button == 4 ? -4 : -5));
-		
 		if (fdf->cp == ISO)
 			draw_tilt(fdf, fdf->map, fdf->cam[fdf->cp]);
 		else if (fdf->cp == CARRE)
