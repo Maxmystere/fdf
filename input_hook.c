@@ -47,7 +47,6 @@ int	key_release(int key, t_fdf *fdf)
 {
 	if (key != 46)
 		ft_noderm_int(&(fdf->keys), key);
-	ft_printf("%s\tkey release :%d\n", fdf->p_win.title, key);
 	return (0);
 }
 
@@ -75,7 +74,6 @@ int	mouse_press(int button, int x, int y, t_fdf *fdf)
 		if (ft_nodesearch_int(fdf->keys, 46))
 			show_menu(fdf);
 	}
-	ft_printf("button :%d\tpos: %d\t%d\n", button, x, y);
 	return (0);
 }
 
@@ -86,7 +84,6 @@ int	mouse_release(int button, int x, int y, t_fdf *fdf)
 		fdf->mouse.x = 0;
 		fdf->mouse.y = 0;
 	}
-	ft_printf("button :%d\tpos: %d\t%d\n", button, x, y);
 	return (0);
 }
 
