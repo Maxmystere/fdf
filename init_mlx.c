@@ -68,9 +68,9 @@ static int	load_all(void *mlx, t_fdf *fdf, int winnb, char **winname)
 
 	v = -1;
 	winopened = 0;
-	fdf->mlx = mlx;
 	while (++v < winnb - 1)
 	{
+		fdf[v].mlx = mlx;
 		if (!(fdf[v].map = parse_file(winname[v + 1], &(fdf[v])))
 														&& !(fdf[v].win = NULL))
 			ft_printf("Could not open file %s\n", winname[v + 1]);

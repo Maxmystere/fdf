@@ -23,12 +23,9 @@ int		close_hook(t_fdf *fdf)
 	int		x;
 	int		nwin;
 
-	x = 0;
-	while (x < MAXP)
-	{
+	x = -1;
+	while (++x < MAXP)
 		mlx_destroy_image(fdf->mlx, fdf->img[x]);
-		x++;
-	}
 	mlx_destroy_window(fdf->mlx, fdf->win);
 	clean_postab(fdf->map);
 	fdf->map = NULL;
@@ -42,6 +39,9 @@ int		close_hook(t_fdf *fdf)
 		x++;
 	}
 	if (nwin == 0)
+	{
+		free(&(fdf[-fdf->p_win.nb]));
 		exit(0);
+	}
 	return (0);
 }

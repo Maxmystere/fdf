@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:01:03 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/16 21:05:05 by tferrieu         ###   ########.fr       */
+/*   Updated: 2019/02/19 15:05:21 by magrab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	key_release(int key, t_fdf *fdf)
 {
 	if (key != 46)
 		ft_noderm_int(&(fdf->keys), key);
-	ft_printf("key release :%d\n", key);
+	ft_printf("%s\tkey release :%d\n", fdf->p_win.title, key);
 	return (0);
 }
 
@@ -66,12 +66,15 @@ int	mouse_press(int button, int x, int y, t_fdf *fdf)
 		move_iso(fdf, (button == 4 ? -4 : -5));
 		move_carre(fdf, (button == 4 ? -4 : -5));
 		move_flat(fdf, (button == 4 ? -4 : -5));
+		
 		if (fdf->cp == ISO)
 			draw_tilt(fdf, fdf->map, fdf->cam[fdf->cp]);
 		else if (fdf->cp == CARRE)
 			draw_tilt(fdf, fdf->map, fdf->cam[fdf->cp]);
 		else if (fdf->cp == FLAT)
 			draw_flat(fdf, fdf->map, fdf->cam[fdf->cp]);
+		if (ft_nodesearch_int(fdf->keys, 46))
+			show_menu(fdf);
 	}
 	ft_printf("button :%d\tpos: %d\t%d\n", button, x, y);
 	return (0);
