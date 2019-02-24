@@ -6,11 +6,11 @@
 /*   By: tferrieu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/29 18:02:23 by tferrieu          #+#    #+#             */
-/*   Updated: 2019/02/14 14:06:52 by tferrieu         ###   ########.fr       */
+/*   Updated: 2019/02/24 16:07:06 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf.h"
 
 /*
 ** clean_lst		: free every link in a t_list starting from the link given.

@@ -6,11 +6,11 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 20:30:03 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/16 16:14:44 by tferrieu         ###   ########.fr       */
+/*   Updated: 2019/02/24 16:10:21 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf.h"
 
 void		fill_pixel(t_fdf *fdf, int x, int y, int color)
 {
@@ -75,11 +75,6 @@ void		fill_line(t_fdf *fdf, t_pos pos0, t_pos pos1)
 			pos0.y += d.c;
 	}
 }
-
-/*
-** d.z = sx
-** d.c = sy
-*/
 
 void		draw_line(t_fdf *fdf, t_pos pos0, t_pos pos1)
 {

@@ -6,11 +6,11 @@
 /*   By: tferrieu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/16 16:32:14 by tferrieu          #+#    #+#             */
-/*   Updated: 2019/02/19 20:58:05 by magrab           ###   ########.fr       */
+/*   Updated: 2019/02/24 16:07:37 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf.h"
 
 static void		draw_boussole(t_fdf *fdf, int x, int y)
 {
@@ -31,7 +31,7 @@ static void		draw_boussole(t_fdf *fdf, int x, int y)
 	mlx_string_put(fdf->mlx, fdf->win, x, y, 0xFFFFFF, "o");
 }
 
-static void		draw_more(t_fdf *fdf, int x,int y)
+static void		draw_more(t_fdf *fdf, int x, int y)
 {
 	char	*tmp;
 	char	*nbstr;

@@ -6,11 +6,11 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/16 19:53:08 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/16 21:11:14 by tferrieu         ###   ########.fr       */
+/*   Updated: 2019/02/24 16:07:41 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf.h"
 
 static t_pos	new_p(int x, int y, int c)
 {

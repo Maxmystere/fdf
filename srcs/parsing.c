@@ -6,12 +6,11 @@
 /*   By: tferrieu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 17:18:53 by tferrieu          #+#    #+#             */
-/*   Updated: 2019/02/19 20:48:47 by tferrieu         ###   ########.fr       */
+/*   Updated: 2019/02/24 16:08:35 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
-#include <fcntl.h>
+#include "../includes/fdf.h"
 
 /*
 ** scan_file		: used by parse_file to store all read lines into a t_list.

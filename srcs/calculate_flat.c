@@ -6,11 +6,11 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 19:39:12 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/16 17:00:26 by tferrieu         ###   ########.fr       */
+/*   Updated: 2019/02/24 16:06:15 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf.h"
 
 static void	init_add(t_pos *add, t_cam pos, t_fdf *fdf)
 {

@@ -6,11 +6,11 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 20:23:43 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/16 18:25:28 by tferrieu         ###   ########.fr       */
+/*   Updated: 2019/02/24 16:08:38 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf.h"
 
 /*
 ** nwin = number of left windows

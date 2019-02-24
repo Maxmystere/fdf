@@ -6,11 +6,11 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 19:34:47 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/16 21:08:02 by tferrieu         ###   ########.fr       */
+/*   Updated: 2019/02/24 16:07:20 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf.h"
 
 /*
 ** Put here initial camera value

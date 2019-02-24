@@ -6,7 +6,7 @@
 /*   By: magrab <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 22:03:51 by magrab            #+#    #+#             */
-/*   Updated: 2019/02/16 20:36:29 by magrab           ###   ########.fr       */
+/*   Updated: 2019/02/24 16:09:03 by tferrieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 # include <mlx.h>
 # include <stdlib.h>
 # include <math.h>
-# include "libft/libft.h"
+# include <fcntl.h>
+# include "../libft/libft.h"
 
 /*
 ** Bonus include

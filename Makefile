@@ -6,49 +6,48 @@
 #    By: tferrieu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/16 17:28:51 by tferrieu          #+#    #+#              #
-#    Updated: 2019/02/16 21:02:24 by tferrieu         ###   ########.fr        #
+#    Updated: 2019/02/24 17:01:24 by tferrieu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FLG-C		=	-c -Wall -Wextra -Werror \
-
-FLG-O		=	-Wall -Wextra -Werror \
-				-lmlx -framework OpenGL -framework AppKit -o
-
-CC			=	cc
-
 NAME		=	fdf
 
-SRC-C		=	./calculate_flat.c \
-				./calculate_tilt.c \
-				./camera_movement.c \
-				./clean_free.c \
-				./draw_line.c \
-				./init_mlx.c \
-				./input_hook.c \
-				./loop_hook.c \
-				./mlxmain.c \
-				./parsing.c \
-				./program_close.c \
-				./order_drawer.c
+LIB			=	./Libft/libft.a
 
-SRC-O		=	$(SRC-C:.c=.o)
+SRC-C		=	./srcs/calculate_flat.c \
+				./srcs/calculate_tilt.c \
+				./srcs/camera_movement.c \
+				./srcs/clean_free.c \
+				./srcs/draw_line.c \
+				./srcs/init_mlx.c \
+				./srcs/input_hook.c \
+				./srcs/loop_hook.c \
+				./srcs/mlxmain.c \
+				./srcs/parsing.c \
+				./srcs/program_close.c \
+				./srcs/order_drawer.c \
 
-all: $(NAME)
+SRC-O		=	$(patsubst ./srcs/%.c, %.o, $(SRC-C))
 
-$(NAME):
-	$(MAKE) -C libft/
-	$(CC) $(FLG-C) $(SRC-C)
-	$(CC) $(FLG-O) $(NAME) $(SRC-O) libft/libft.a
+FLAG		=	-Wall -Wextra -Werror
+
+FMLX		=	-lmlx -framework OpenGL -framework AppKit -o
+
+all:		$(NAME)
+
+$(NAME):	$(SRC)
+	make -C Libft
+	gcc $(FLAG) -c $(SRC-C)
+	gcc $(FLAG) $(FMLX) $(NAME) $(SRC-O) $(LIB)
 
 clean:
-	$(MAKE) -C libft/ clean
-	rm -f $(SRC-O)
+	make -C Libft clean
+	rm -rf $(SRC-O)
 
-fclean: clean
-	$(MAKE) -C libft/ fclean
-	rm -f $(NAME)
+fclean:
+	make -C Libft fclean
+	rm -rf $(SRC-O) $(NAME)
 
-re: fclean all
+re:			fclean all
 
-.PHONY: all $(NAME) clean fclean re
+.PHONY : all clean fclean re clib fclib
