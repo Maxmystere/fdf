@@ -6,7 +6,7 @@
 #    By: tferrieu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/16 17:28:51 by tferrieu          #+#    #+#              #
-#    Updated: 2019/02/24 17:01:24 by tferrieu         ###   ########.fr        #
+#    Updated: 2019/03/05 11:28:27 by tferrieu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ FMLX		=	-lmlx -framework OpenGL -framework AppKit -o
 
 all:		$(NAME)
 
-$(NAME):	$(SRC)
+$(NAME):	$(SRC-C)
 	make -C Libft
 	gcc $(FLAG) -c $(SRC-C)
 	gcc $(FLAG) $(FMLX) $(NAME) $(SRC-O) $(LIB)
